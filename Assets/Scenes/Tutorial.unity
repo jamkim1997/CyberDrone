@@ -639,7 +639,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 541128733, guid: 6d1e2d9d0891e4c8880e2addef5716c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8603,6 +8603,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 16, y: 12, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 17, y: 12, z: 0}
     second:
       serializedVersion: 2
@@ -8617,7 +8627,7 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 7b5c4ddd3917c4693a890a80939148c1, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c2fd5528ca39249fe983e84cbbfb3169, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: a56ceb5dbc6764c45bfe3794a93882a5, type: 2}
@@ -8634,7 +8644,7 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 1583035191, guid: 4b9f682db9d9e494dbe65c2ee4a2ed97, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: -128575432, guid: 6998b3033ba2448b2bc8e9ced35ddd57, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 343677567, guid: 4b9f682db9d9e494dbe65c2ee4a2ed97, type: 3}
@@ -8649,7 +8659,7 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: -1361375161, guid: 4b9f682db9d9e494dbe65c2ee4a2ed97, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 57
+  - m_RefCount: 58
     m_Data:
       e00: 1
       e01: 0
@@ -8776,7 +8786,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 91
+  - m_RefCount: 92
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -9246,7 +9256,7 @@ Transform:
   m_GameObject: {fileID: 1075044547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.48, y: 12.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1998638597}
@@ -10169,7 +10179,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 42999.996, y: 47999.996}
