@@ -102,7 +102,7 @@ public class Guard : MonoBehaviour
         switch (state) {
         case State.Waiting:
             waitTimer -= Time.deltaTime;
-            //animatedWalker.SetMoveVector(Vector3.zero);
+            //animation
             if (waitTimer <= 0f) {
                 state = State.Moving;
             }
@@ -114,7 +114,7 @@ public class Guard : MonoBehaviour
             lastMoveDir = waypointDir;
 
             float distanceBefore = Vector3.Distance(transform.position, waypoint);
-            //animatedWalker.SetMoveVector(waypointDir);
+            //animation
             transform.position = transform.position + waypointDir * speed * Time.deltaTime;
             float distanceAfter = Vector3.Distance(transform.position, waypoint);
 
