@@ -19,6 +19,8 @@ public class Guard : MonoBehaviour
 
     private FieldOfView fieldOfView;
 
+    //public Animator animator;
+
     private enum State {
         Waiting,
         Moving,
@@ -93,7 +95,10 @@ public class Guard : MonoBehaviour
         Vector3 targetPosition = player.GetPosition();
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
+        
 
+        FindObjectOfType<GameManager>().EndGame();
+        //animator.Play("Guard");
         //play anim
         //Alert other guards
         //gameover

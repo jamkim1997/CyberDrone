@@ -93,6 +93,8 @@ public class SurveillanceCamera : MonoBehaviour
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
 
+        FindObjectOfType<GameManager>().EndGame();
+
         //Alert other guards
         //gameover
     }

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Anim_Drone_Idle
+  m_Name: Anim_Door_Closed
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1116011044, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - time: 0.083333336
-      value: {fileID: 1705222095, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - time: 0.16666667
-      value: {fileID: 104553431, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - time: 0.25
-      value: {fileID: 840008631, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
+      value: {fileID: -128575432, guid: 6998b3033ba2448b2bc8e9ced35ddd57, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,16 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1116011044, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - {fileID: 1705222095, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - {fileID: 104553431, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
-    - {fileID: 840008631, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
+    - {fileID: -128575432, guid: 6998b3033ba2448b2bc8e9ced35ddd57, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

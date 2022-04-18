@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     public static Player instance;
 
     private const float SPEED = 10f;
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRigidbody2D;
     private Vector3 moveDir;
     private State state;
+    public Animator animator;
 
     private enum State {
         Normal,
@@ -28,7 +30,12 @@ public class Player : MonoBehaviour
             HandleMovement();
             break;
         }
+
+
+
     }
+
+    
     
     private void SetStateNormal() {
         state = State.Normal;
@@ -57,9 +64,9 @@ public class Player : MonoBehaviour
     private void FixedUpdate() {
         bool isIdle = moveDir.x == 0 && moveDir.y == 0;
         if (isIdle) {
-            //idle anim
+            animator.Play("Anim_Drone_Idle"); //anim idle
         } else {
-            //move anim
+            animator.Play("Anim_Drone_Movement"); //move anim
             //transform.position += moveDir * SPEED * Time.deltaTime;
             playerRigidbody2D.MovePosition(transform.position + moveDir * SPEED * Time.fixedDeltaTime);
         }
@@ -74,4 +81,12 @@ public class Player : MonoBehaviour
     public Vector3 GetPosition() {
         return transform.position;
     }
+
+    private void PlayerCaught()
+    {
+        FindObjectOfType<GameManager>().EndGame();
+         
+    }
+
+    
 }
