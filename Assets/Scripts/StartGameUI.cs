@@ -25,6 +25,7 @@ public class StartGameUI : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
     }
     private void OnEnable()
     {

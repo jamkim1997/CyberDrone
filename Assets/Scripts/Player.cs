@@ -22,6 +22,11 @@ public class Player : MonoBehaviour
         instance = this;
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         SetStateNormal();
+        
+        FindObjectOfType<Audio_Manager>().Play("DroneFly");
+        FindObjectOfType<Audio_Manager>().Pause("DroneFly");
+
+
     }
 
     private void Update() {
@@ -47,15 +52,25 @@ public class Player : MonoBehaviour
         
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
             moveY = +1f;
+            FindObjectOfType<Audio_Manager>().UnPause("DroneFly");
         }
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
             moveY = -1f;
+            FindObjectOfType<Audio_Manager>().UnPause("DroneFly");
+
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
             moveX = -1f;
+            FindObjectOfType<Audio_Manager>().UnPause("DroneFly");
+
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
             moveX = +1f;
+            FindObjectOfType<Audio_Manager>().UnPause("DroneFly");
+
+        }
+        if(moveX == 0f && moveY == 0f){
+            FindObjectOfType<Audio_Manager>().Pause("DroneFly");
         }
 
         moveDir = new Vector3(moveX, moveY).normalized;
@@ -67,6 +82,7 @@ public class Player : MonoBehaviour
             animator.Play("Anim_Drone_Idle"); //anim idle
         } else {
             animator.Play("Anim_Drone_Movement"); //move anim
+
             //transform.position += moveDir * SPEED * Time.deltaTime;
             playerRigidbody2D.MovePosition(transform.position + moveDir * SPEED * Time.fixedDeltaTime);
         }

@@ -8,14 +8,14 @@ public class GameManager : MonoBehaviour
 {
     
     bool gameHasEnded = false;
-    float delayTime = 2f;
+    float delayTime = 1.5f;
     public void EndGame ()
     {
         if (gameHasEnded == false)
         gameHasEnded = true;
         Debug.Log("Game Over");
         Invoke ("DelayedAction", delayTime);
-        
+        FindObjectOfType<Audio_Manager>().Play("GameOver");
         //Restart();
     }
 
