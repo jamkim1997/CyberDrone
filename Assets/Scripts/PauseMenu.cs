@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     public GameObject pauseMenuUI;
+    public GameObject image;
 
     // Update is called once per frame
     void Update()
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Resume playing");
         pauseMenuUI.SetActive(false);
+        image.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
     }
@@ -41,13 +43,9 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Pausing the game");
         pauseMenuUI.SetActive(true);
+        image.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-    }
-
-    public void OpenSetting()
-    {
-        Debug.Log("An empty button that can be used for connecting the setting menu");
     }
 
     public void QuitMenu()
