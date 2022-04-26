@@ -13259,7 +13259,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -21405,7 +21405,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
-  positionToMoveTo: {x: 4, y: 11, z: 0}
+  positionToMoveTo: {x: 4, y: -11, z: 0}
 --- !u!95 &2007892468
 Animator:
   serializedVersion: 4
