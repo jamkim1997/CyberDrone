@@ -23,6 +23,8 @@ public class SurveillanceCamera : MonoBehaviour
     private State state;
     private Vector3 lastMoveDir;
 
+    public Vector3 positionToMoveTo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class SurveillanceCamera : MonoBehaviour
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
+
+        StartCoroutine(LerpPosition(positionToMoveTo, 25));
     }
 
     // Update is called once per frame
@@ -56,6 +60,19 @@ public class SurveillanceCamera : MonoBehaviour
         }
 
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
+    }
+
+    IEnumerator LerpPosition(Vector3 target, float duration)
+    {
+        float time = 0;
+        Vector3 startPosition = lastMoveDir;  
+        while(time < duration)
+        {
+            lastMoveDir = Vector3.Lerp(startPosition, target, time / duration);
+            time += Time.deltaTime;
+             yield return null;
+        }
+        lastMoveDir = target;
     }
 
     private void FindTargetPlayer()

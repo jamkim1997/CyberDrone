@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
-    private const float speed = 10f;
+    private const float speed = 7f;
 
     [SerializeField] private List<Vector3> waypointList;
     [SerializeField] private List<float> waitTimeList;

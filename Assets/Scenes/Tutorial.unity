@@ -935,7 +935,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299959847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.82, y: 2.14, z: 0}
+  m_LocalPosition: {x: -0.01, y: 0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -955,10 +955,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointList:
-  - {x: 10, y: 2, z: 0}
-  - {x: 4, y: -2, z: 0}
+  - {x: -0.85, y: 2, z: 0}
+  - {x: 13, y: 2, z: 0}
+  - {x: 13, y: -1.3, z: 0}
+  - {x: -0.01, y: -1.3, z: 0}
   waitTimeList:
-  - 1
+  - 2
+  - 2
+  - 2
   - 2
   aimDirection: {x: 0.4, y: -1, z: 0}
   player: {fileID: 1140999040}
@@ -13255,7 +13259,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 11
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -13280,7 +13284,7 @@ Transform:
   m_GameObject: {fileID: 1788056595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 0.004127957, y: 3.1643848, z: 1.875191}
+  m_LocalScale: {x: 0.004127957, y: 5.26079, z: 1.875191}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1140999039}
@@ -13363,6 +13367,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  door: {fileID: 529414045}
 --- !u!61 &1801341388
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21376,7 +21381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007892464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.42, y: 12.1, z: 0}
+  m_LocalPosition: {x: 9.42, y: 11.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21395,11 +21400,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf1088a2804bf344868e1a029d52687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimDirection: {x: 0, y: -0.1, z: 0}
+  aimDirection: {x: 4, y: -0.1, z: 0}
   player: {fileID: 1140999040}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
+  positionToMoveTo: {x: 4, y: 11, z: 0}
 --- !u!95 &2007892468
 Animator:
   serializedVersion: 4

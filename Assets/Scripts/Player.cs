@@ -23,8 +23,9 @@ public class Player : MonoBehaviour
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         SetStateNormal();
         
-        FindObjectOfType<Audio_Manager>().Play("DroneFly");
-        FindObjectOfType<Audio_Manager>().Pause("DroneFly");
+        //fix
+        //FindObjectOfType<Audio_Manager>().Play("DroneFly");
+        //FindObjectOfType<Audio_Manager>().Pause("DroneFly");
 
 
     }
@@ -35,12 +36,9 @@ public class Player : MonoBehaviour
             HandleMovement();
             break;
         }
-
-
-
     }
 
-    
+
     
     private void SetStateNormal() {
         state = State.Normal;
