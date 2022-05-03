@@ -21400,12 +21400,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf1088a2804bf344868e1a029d52687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimDirection: {x: 4, y: -0.1, z: 0}
+  aimDirection: {x: 1, y: -2, z: 0}
   player: {fileID: 1140999040}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
-  positionToMoveTo: {x: 4, y: -11, z: 0}
+  speed: 0.3
+  positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!95 &2007892468
 Animator:
   serializedVersion: 4

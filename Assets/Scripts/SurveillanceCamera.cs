@@ -10,6 +10,7 @@ public class SurveillanceCamera : MonoBehaviour
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
+    [SerializeField] private float speed;
 
     private FieldOfView fieldOfView;
 
@@ -35,7 +36,7 @@ public class SurveillanceCamera : MonoBehaviour
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
 
-        StartCoroutine(LerpPosition(positionToMoveTo, 25));
+        StartCoroutine(LerpPosition(positionToMoveTo, speed));
     }
 
     // Update is called once per frame
@@ -62,17 +63,20 @@ public class SurveillanceCamera : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
     }
 
-    IEnumerator LerpPosition(Vector3 target, float duration)
+    IEnumerator LerpPosition(Vector3 target, float speed)
     {
-        float time = 0;
-        Vector3 startPosition = lastMoveDir;  
-        while(time < duration)
+
+        while (true)
         {
-            lastMoveDir = Vector3.Lerp(startPosition, target, time / duration);
-            time += Time.deltaTime;
-             yield return null;
+        float time = Mathf.PingPong(Time.time * speed, 1);
+        //Vector3 startPosition = lastMoveDir;          
+        
+        
+        lastMoveDir = Vector3.Lerp(aimDirection, target, time);
+        yield return null;
+
         }
-        lastMoveDir = target;
+        
     }
 
     private void FindTargetPlayer()
@@ -124,6 +128,12 @@ public class SurveillanceCamera : MonoBehaviour
     public Vector3 GetAimDir()
     {
         return lastMoveDir;
+    }
+
+
+    bool isApproximate(float a, float b, float tolerance)
+    {
+        return Mathf.Abs (a - b) < tolerance;
     }
 
 }
