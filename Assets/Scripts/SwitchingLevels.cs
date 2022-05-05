@@ -10,7 +10,7 @@ public class SwitchingLevels : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Loading level with build index
-            SceneManager.LoadScene("Game_Over");
+            SceneManager.LoadScene("Level 1");
         }
     }
     // Start is called before the first frame update

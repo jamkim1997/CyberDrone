@@ -437,6 +437,8 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 5.75
+  speed: 0
+  positionToMoveTo: {x: 0, y: 0, z: 0}
 --- !u!212 &92057081
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1171,6 +1173,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  door: {fileID: 0}
 --- !u!61 &274417281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2445,6 +2448,8 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
+  speed: 0
+  positionToMoveTo: {x: 0, y: 0, z: 0}
 --- !u!212 &537555166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2676,8 +2681,7 @@ Transform:
   m_LocalPosition: {x: -6.47, y: -4.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1622552856}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6580,6 +6584,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  door: {fileID: 0}
 --- !u!61 &942423219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21914,12 +21919,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622552855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 4.14, y: 4.44, z: -10}
   m_LocalScale: {x: 0.004127957, y: 3.1643848, z: 1.875191}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 539930194}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1622552857
 AudioListener:
@@ -21956,7 +21961,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 11.862005
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
