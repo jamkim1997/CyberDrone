@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cardbutton
+  - Collectable
+  - CollectSD
   layers:
   - Default
   - TransparentFX

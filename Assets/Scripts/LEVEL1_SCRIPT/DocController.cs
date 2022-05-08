@@ -14,6 +14,7 @@ public class DocController : MonoBehaviour
     public GameObject Doc1;
     public GameObject Doc2;
     public GameObject Doc3;
+   
 
 
     public void OpenDocBox()
@@ -32,6 +33,7 @@ public class DocController : MonoBehaviour
             Doc3.SetActive(true);
         }
     }
+   
 
 
    
