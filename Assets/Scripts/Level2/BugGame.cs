@@ -37,6 +37,8 @@ public class BugGame : MonoBehaviour
 
     public Animator[] labs;
 
+    public Transform fov;
+
     private void Awake()
     {
         ventScript = FindObjectOfType<Vent>();
@@ -96,6 +98,7 @@ public class BugGame : MonoBehaviour
     {
         transform.GetChild(0).gameObject.SetActive(false);
         Destroy(mainRoomGuards.gameObject);
+        Destroy(fov.gameObject);
         character.enabled = false;
         SoundEffect("Lab");
         foreach (Animator lab in labs)

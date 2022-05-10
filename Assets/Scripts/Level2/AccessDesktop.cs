@@ -32,7 +32,7 @@ public class AccessDesktop : MonoBehaviour
 
             if (isUSB && Input.GetKeyDown(KeyCode.E))
             {
-                doors.DOLocalMoveY(0, 0);
+                doors.DOLocalMoveY(0, 0.1f);
                 miniGame.gameObject.SetActive(true);
                 Destroy(GetComponentInChildren<Canvas>().gameObject);
                 Destroy(this);

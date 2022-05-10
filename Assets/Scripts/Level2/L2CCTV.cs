@@ -6,10 +6,11 @@ public class L2CCTV : MonoBehaviour
 {
     [SerializeField] private Vector3 aimDirection;
 
-    private L2Player player;
+    [SerializeField] private L2Player player;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
+    [SerializeField] private float speed;
 
     private FieldOfView fieldOfView;
 
@@ -28,17 +29,14 @@ public class L2CCTV : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<L2Player>();
         state = State.Surveilling;
         lastMoveDir = aimDirection;
 
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
-        fieldOfView.transform.parent = transform;
-        fieldOfView.transform.localPosition = new Vector3(0, 0, -5);
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
 
-        StartCoroutine(LerpPosition(positionToMoveTo, 25));
+        StartCoroutine(LerpPosition(positionToMoveTo, speed));
     }
 
     // Update is called once per frame
@@ -66,17 +64,20 @@ public class L2CCTV : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
     }
 
-    IEnumerator LerpPosition(Vector3 target, float duration)
+    IEnumerator LerpPosition(Vector3 target, float speed)
     {
-        float time = 0;
-        Vector3 startPosition = lastMoveDir;
-        while (time < duration)
+
+        while (true)
         {
-            lastMoveDir = Vector3.Lerp(startPosition, target, time / duration);
-            time += Time.deltaTime;
+            float time = Mathf.PingPong(Time.time * speed, 1);
+            //Vector3 startPosition = lastMoveDir;          
+
+
+            lastMoveDir = Vector3.Lerp(aimDirection, target, time);
             yield return null;
+
         }
-        lastMoveDir = target;
+
     }
 
     private void FindTargetPlayer()
@@ -92,7 +93,7 @@ public class L2CCTV : MonoBehaviour
                 if (raycastHit2D.collider != null)
                 {
                     // Hit something
-                    if (raycastHit2D.collider.gameObject.GetComponent<L2Player>() != null)
+                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
                     {
                         // Hit Player
                         Alert();
@@ -128,6 +129,12 @@ public class L2CCTV : MonoBehaviour
     public Vector3 GetAimDir()
     {
         return lastMoveDir;
+    }
+
+
+    bool isApproximate(float a, float b, float tolerance)
+    {
+        return Mathf.Abs(a - b) < tolerance;
     }
 
 }

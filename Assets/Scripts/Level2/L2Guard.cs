@@ -17,9 +17,9 @@ public class L2Guard : MonoBehaviour
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
 
-    public bool cctv;
-
     private FieldOfView fieldOfView;
+
+    public Transform field;
 
     //public Animator animator;
 
@@ -40,15 +40,14 @@ public class L2Guard : MonoBehaviour
     {
         player = FindObjectOfType<L2Player>();
         state = State.Waiting;
-        if (!cctv)
-        {
-            waitTimer = waitTimeList[0];
-        }
+        waitTimer = waitTimeList[0];
 
         lastMoveDir = aimDirection;
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
-        fieldOfView.transform.parent = transform;
-        fieldOfView.transform.localPosition = new Vector3(0, 0, -5);
+        if(transform.parent.name == "Main Room Guards")
+        {
+            fieldOfView.transform.parent = field.transform;
+        }
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
     }
@@ -61,10 +60,7 @@ public class L2Guard : MonoBehaviour
             default:
             case State.Waiting:
             case State.Moving:
-                if (!cctv)
-                {
-                    HandleMovement();
-                }
+                HandleMovement();
                 FindTargetPlayer();
                 break;
             case State.Alert:

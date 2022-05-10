@@ -13,11 +13,13 @@ public class Vent : MonoBehaviour
     public Transform keyCard;
     private CardKey cardKeyScript;
     private L2Player playerScripe;
+    private Audio_Manager audioManager;
 
     private bool isWorking;
 
     private void Start()
     {
+        audioManager = FindObjectOfType<Audio_Manager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         ventEntryColliders = GetComponentsInChildren<BoxCollider2D>();
         cardKeyScript = FindObjectOfType<CardKey>();

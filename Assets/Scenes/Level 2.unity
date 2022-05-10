@@ -7476,6 +7476,7 @@ MonoBehaviour:
   - {fileID: 123332413}
   - {fileID: 1652647050}
   - {fileID: 253599483}
+  fov: {fileID: 1675081879}
 --- !u!82 &359502751
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65154,6 +65155,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
+  speed: 0
   positionToMoveTo: {x: 4, y: -11, z: 0}
 --- !u!212 &817220215
 SpriteRenderer:
@@ -65235,9 +65237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimDirection: {x: 4, y: -0.1, z: 0}
+  player: {fileID: 1787435853}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
+  speed: 0
   positionToMoveTo: {x: 4, y: -11, z: 0}
 --- !u!1 &848789625
 GameObject:
@@ -68329,7 +68333,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 5
-  cctv: 0
+  field: {fileID: 1675081879}
 --- !u!1 &1548375128
 GameObject:
   m_ObjectHideFlags: 0
@@ -71418,6 +71422,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1675081878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675081879}
+  m_Layer: 0
+  m_Name: Field
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1675081879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675081878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1683362340
 GameObject:
   m_ObjectHideFlags: 0
@@ -76810,7 +76845,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 5
-  cctv: 0
+  field: {fileID: 1675081879}
 --- !u!1 &1769675022
 GameObject:
   m_ObjectHideFlags: 0
@@ -76883,7 +76918,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -920425145
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 20
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -77503,7 +77538,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -920425145
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: -1116011044, guid: b81e524ea69b841ba9a079885c8ac091, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -78422,7 +78457,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
-  cctv: 0
+  field: {fileID: 0}
 --- !u!1 &1818049029
 GameObject:
   m_ObjectHideFlags: 0
@@ -83571,7 +83606,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 5
-  cctv: 0
+  field: {fileID: 0}
 --- !u!1 &1900569348
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,13 +18,14 @@ public class LeverControl : MonoBehaviour
     private AudioSource audio;
     public AudioClip[] sounds;
 
-    public Transform[] FieldOfView;
+    public FieldOfView[] FieldOfView;
 
     private void Awake()
     {
         doorCollider = FindObjectOfType<CardKey>().GetComponentInChildren<BoxCollider2D>();
         cctv = FindObjectOfType<SurveillanceCamera>();
         audio = GetComponent<AudioSource>();
+        FieldOfView = FindObjectsOfType<FieldOfView>();
     }
 
     private void ActivateLever() {
@@ -107,10 +108,9 @@ public class LeverControl : MonoBehaviour
         guard.GetComponent<L2Guard>().enabled = false;
         guard.GetComponent<Animator>().enabled = false;
         //delete the field of view
-        foreach(Transform fieldOfView in FieldOfView)
+        foreach(FieldOfView fieldOfView in FieldOfView)
         {
-            Destroy(fieldOfView.GetChild(0).gameObject);
-
+            Destroy(fieldOfView.gameObject);
         }
     }
 
