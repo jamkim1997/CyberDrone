@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private Vector3 moveDir;
     private State state;
     public Animator animator;
+    //bool for level 3
+    bool allowMovement;
 
     private enum State {
         Normal,
@@ -22,6 +24,8 @@ public class Player : MonoBehaviour
         instance = this;
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         SetStateNormal();
+        //bool for level 3 
+        allowMovement = true;
         
         //fix
         //FindObjectOfType<Audio_Manager>().Play("DroneFly");
@@ -76,7 +80,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate() {
         bool isIdle = moveDir.x == 0 && moveDir.y == 0;
-        if (isIdle) {
+        if (isIdle || !allowMovement) {
             animator.Play("Anim_Drone_Idle"); //anim idle
         } else {
             animator.Play("Anim_Drone_Movement"); //move anim
@@ -90,6 +94,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name == "Button") {
         }
+
     }
 
     public Vector3 GetPosition() {
@@ -102,5 +107,21 @@ public class Player : MonoBehaviour
          
     }
 
-    
+    //For level 3 invisibility system and functionality, stops players movement when space is pressed
+    public void BecomeInvisible()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        allowMovement = false;
+        Debug.Log("Invisible");
+    }
+
+    //For level 3 invisibility system and functionality, allows players movement when space is unpressed
+    public void BecomeVisible()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        allowMovement = true;
+        Debug.Log("Not Invisible");
+    }
+
+  
 }

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     
     bool gameHasEnded = false;
-    float delayTime = 1.5f;
+    float delayTime = 0.5f;
     public void EndGame ()
     {
         if (gameHasEnded == false)
