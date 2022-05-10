@@ -140,4 +140,12 @@ public class Guard : MonoBehaviour
     public Vector3 GetAimDir() {
         return lastMoveDir;
     }    
+
+    // Function for Level 5 Speed Boost Mechanic
+    public void changeViewDistance(float Distance)
+    {
+        viewDistance = Distance;
+        fieldOfView.SetViewDistance(viewDistance);
+        //viewDistance = 10;
+    }
 }

@@ -136,4 +136,12 @@ public class SurveillanceCamera : MonoBehaviour
         return Mathf.Abs (a - b) < tolerance;
     }
 
+
+    // Function for Level 5 Switch Off Camera Mechanic
+    public void changeViewDistance(float Distance)
+    {
+        viewDistance = Distance;
+        fieldOfView.SetViewDistance(viewDistance);
+        //viewDistance = 10;
+    }
 }
