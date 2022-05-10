@@ -17,6 +17,9 @@ public class GameController : MonoBehaviour
 
     public GameObject imagePanel;
 
+    public Animator Red;
+    public Animator blue;
+
     private int countGuesses;
     private int countCorrectguesses;
     private int gamegusses;
@@ -131,6 +134,9 @@ public class GameController : MonoBehaviour
             Debug.Log("It took you" + countGuesses + "many guess to finish the game");
             Destroy(miniGameUI);
             Destroy(imagePanel);
+            Red.enabled = true;
+            blue.enabled = true;
+
 
         }
 

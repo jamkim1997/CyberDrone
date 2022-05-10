@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
-    private float SPEED = 10f;
+    private const float SPEED = 10f;
     
     private Rigidbody2D playerRigidbody2D;
     private Vector3 moveDir;
@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     public Animator animator;
     //bool for level 3
     bool allowMovement;
-    //bool for level 5
-    bool speedBoost;
 
     private enum State {
         Normal,
@@ -28,7 +26,6 @@ public class Player : MonoBehaviour
         SetStateNormal();
         //bool for level 3 
         allowMovement = true;
-        speedBoost = false;
         
         //fix
         //FindObjectOfType<Audio_Manager>().Play("DroneFly");
@@ -97,6 +94,7 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.gameObject.name == "Button") {
         }
+
     }
 
     public Vector3 GetPosition() {
@@ -125,25 +123,5 @@ public class Player : MonoBehaviour
         Debug.Log("Not Invisible");
     }
 
-    //For Level 5 Speed Boost Mechainc
-    public void changeSpeed()
-    {
-        if (speedBoost)
-        {// If this function is called while speedBoost is true, turn off the speed boost
-            // Set the SPEED back to normal
-            SPEED = 10f;
-            speedBoost = false;
-            // Console print out
-            //Debug.Log("Wooo");
-        }
-        else
-        {// Turn on the speed boost if this function is called while speedBoost is false
-            // Set the SPEED to a increased level
-            SPEED = 20f;
-            speedBoost = true;
-            // Console print out
-            //Debug.Log("Woooooo");
-        }
-
-    }
+  
 }

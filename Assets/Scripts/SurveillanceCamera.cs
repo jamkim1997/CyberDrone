@@ -33,6 +33,7 @@ public class SurveillanceCamera : MonoBehaviour
         lastMoveDir = aimDirection;
 
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
+        fieldOfView.transform.parent = transform;
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
 
