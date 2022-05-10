@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: decb66d2ef8f30f40b7b6e30482c5dd5
+guid: ae5e66ee2d1e14237996234928442a2e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,21 +34,21 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 2
+    aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 32
-  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -66,10 +66,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -78,43 +78,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 8192
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -126,7 +90,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -138,7 +102,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 8192
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -152,139 +116,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Patten001Origin_0
+      name: Level2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 32
+        y: 211
+        width: 26
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1c61fce9fe2b4fa98dcabd0b7416af6
-      internalID: 748734400
+      spriteID: b799c0c9e758e41ddb341d786b6ca4f4
+      internalID: -503832442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_1
+      name: Level2_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 70
+        y: 212
+        width: 25
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ca6ce2e6549e4ce0a473ca912bc3517
-      internalID: -984076818
+      spriteID: c30ade688e0c74beeb264ab5687123d3
+      internalID: 407334564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_2
+      name: Level2_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 104
+        y: 212
+        width: 26
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b709e9a260344a159de83a5ee9c2195
-      internalID: 1435900811
+      spriteID: 9dcf748c23fb8431fa75f952ee747854
+      internalID: -394851334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_3
+      name: Level2_3
       rect:
         serializedVersion: 2
-        x: 12
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 140
+        y: 212
+        width: 26
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90809fb2a1544c4b87debab42e2ad5f
-      internalID: -1185006118
+      spriteID: e546034ae9d624f3ba594d8ab61958bb
+      internalID: -1578616484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_4
+      name: Level2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 172
+        y: 212
+        width: 26
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27437f55b2b7449248d5b0aef6bc2aca
-      internalID: -642820166
+      spriteID: b5c18f8fee7914345a8d671d212f937d
+      internalID: -191975894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_5
+      name: Level2_5
       rect:
         serializedVersion: 2
-        x: 4
-        y: 8
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 206
+        y: 212
+        width: 25
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56a439023f88148d384146a37d38a533
-      internalID: 2069870786
+      spriteID: 1f8d6c8a20f544db7bbf740ba52ba138
+      internalID: -1531464722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_6
+      name: Level2_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 8
-        width: 4
-        height: 4
+        x: 11
+        y: 151
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf6b111eefe1c4021aea1aaa1d617d6a
-      internalID: -105387650
+      spriteID: f1910368c91f34da891b716a5b5f2293
+      internalID: -1923524438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_7
+      name: Level2_7
       rect:
         serializedVersion: 2
-        x: 12
-        y: 8
-        width: 4
-        height: 4
+        x: 31
+        y: 151
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de24ff426fa4e477995d3ebb0a6e0909
-      internalID: 1284254914
+      spriteID: c02209c8f89c04dadb4385582f609917
+      internalID: 397024688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_8
+      name: Level2_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4
-        width: 4
-        height: 4
+        x: 51
+        y: 151
+        width: 14
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5560fd9686c14e9886cb7962e806389
-      internalID: -1705697472
+      spriteID: 6f9702858684542ed88656cb061da82d
+      internalID: -1881600361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_9
+      name: Level2_9
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 4
-        height: 4
+        x: 70
+        y: 151
+        width: 14
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb30deb25d59340ed8290948aa652166
-      internalID: -441574163
+      spriteID: f2e57f02ead1449a1813a0bbfc65da49
+      internalID: -1571918841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_10
+      name: Level2_10
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 4
-        height: 4
+        x: 168
+        y: 135
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +340,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 126e97b4dd83a47f7a8f9bfda559f5b1
-      internalID: 1213260401
+      spriteID: 9e2b44db6869c4b79842d8b2de5370a2
+      internalID: -1531431093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_11
+      name: Level2_11
       rect:
         serializedVersion: 2
-        x: 12
-        y: 4
-        width: 4
-        height: 4
+        x: 197
+        y: 135
+        width: 24
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,20 +361,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c53b29cd279f407994ec2c4e57db371
-      internalID: 411156987
+      spriteID: 224d7fc9e93e34e9c8492def63168c79
+      internalID: -1122352306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_12
+      name: Level2_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4
-        height: 4
+        x: 228
+        y: 135
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +382,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e07131e8725244754b128f8c5549b024
-      internalID: -1034430848
+      spriteID: 5e85696c316934005a10535f256cc2e9
+      internalID: 1089394097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_13
+      name: Level2_13
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 4
-        height: 4
+        x: 250
+        y: 135
+        width: 18
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,20 +403,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c97a57417c994f7cac6feffa46a463f
-      internalID: 484439917
+      spriteID: f5854bc6ec33c47229a182c1f48ba6d6
+      internalID: 1286287648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_14
+      name: Level2_14
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 4
-        height: 4
+        x: 25
+        y: 73
+        width: 24
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -460,20 +424,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64a0f0815604c4d0ca8bc4db67c3d437
-      internalID: -2059084783
+      spriteID: 17883e66c46e24388890c1560c2b7ac0
+      internalID: 2089061233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Patten001Origin_15
+      name: Level2_18
       rect:
         serializedVersion: 2
-        x: 12
-        y: 0
-        width: 4
-        height: 4
+        x: 148
+        y: 69
+        width: 77
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,8 +445,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb71d06a4e6741d48699f658891e70c
-      internalID: -292887626
+      spriteID: 39ea8401ceb8544e89aafc8b39211a57
+      internalID: -1472781944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level2_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 73
+        width: 26
+        height: 31
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86a288578ac84841920f955c2d1c6af
+      internalID: -1671656004
       vertices: []
       indices: 
       edges: []
@@ -491,29 +476,33 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Patten001Origin_6: -105387650
-      Patten001Origin_0: 748734400
-      Patten001Origin_12: -1034430848
-      Patten001Origin_13: 484439917
-      Patten001Origin_15: -292887626
-      Patten001Origin_9: -441574163
-      Patten001Origin_2: 1435900811
-      Patten001Origin_1: -984076818
-      Patten001Origin_4: -642820166
-      Patten001Origin_11: 411156987
-      Patten001Origin_5: 2069870786
-      Patten001Origin_7: 1284254914
-      Patten001Origin_10: 1213260401
-      Patten001Origin_8: -1705697472
-      Patten001Origin_14: -2059084783
-      Patten001Origin_3: -1185006118
+      Level2_11: -1122352306
+      Level2_5: -1531464722
+      Level2_3: -1578616484
+      Level2_1: 407334564
+      Level2_7: 397024688
+      Level2_10: -1531431093
+      Level2_12: 1089394097
+      Level2_14: 2089061233
+      Level2_17: 1853207652
+      Level2_4: -191975894
+      Level2_8: -1881600361
+      Level2_18: -1472781944
+      Level2_19: -1671656004
+      Level2_0: -503832442
+      Level2_15: -1435285679
+      Level2_6: -1923524438
+      Level2_16: 495260804
+      Level2_2: -394851334
+      Level2_13: 1286287648
+      Level2_9: -1571918841
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

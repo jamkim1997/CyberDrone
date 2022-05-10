@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SurveillanceCamera : MonoBehaviour
+public class L2CCTV : MonoBehaviour
 {
     [SerializeField] private Vector3 aimDirection;
 
-    [SerializeField] private Player player;
+    private L2Player player;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
@@ -28,11 +28,13 @@ public class SurveillanceCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<L2Player>();
         state = State.Surveilling;
         lastMoveDir = aimDirection;
 
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
         fieldOfView.transform.parent = transform;
+        fieldOfView.transform.localPosition = new Vector3(0, 0, -5);
         fieldOfView.SetFoV(fov);
         fieldOfView.SetViewDistance(viewDistance);
 
@@ -42,7 +44,8 @@ public class SurveillanceCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (state){
+        switch (state)
+        {
             default:
             case State.Surveilling:
                 FindTargetPlayer();
@@ -66,12 +69,12 @@ public class SurveillanceCamera : MonoBehaviour
     IEnumerator LerpPosition(Vector3 target, float duration)
     {
         float time = 0;
-        Vector3 startPosition = lastMoveDir;  
-        while(time < duration)
+        Vector3 startPosition = lastMoveDir;
+        while (time < duration)
         {
             lastMoveDir = Vector3.Lerp(startPosition, target, time / duration);
             time += Time.deltaTime;
-             yield return null;
+            yield return null;
         }
         lastMoveDir = target;
     }
@@ -89,7 +92,7 @@ public class SurveillanceCamera : MonoBehaviour
                 if (raycastHit2D.collider != null)
                 {
                     // Hit something
-                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
+                    if (raycastHit2D.collider.gameObject.GetComponent<L2Player>() != null)
                     {
                         // Hit Player
                         Alert();
