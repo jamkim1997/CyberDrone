@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CameraOff : MonoBehaviour
 {
 
     public GameObject terminal;
     public GameObject camera;
+    public UnityEvent interactAction;
     bool isActive;
     public bool isInRange;
     
@@ -23,12 +25,12 @@ public class CameraOff : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                /*
+                
                 interactAction.Invoke();
                 isActive = true;
                 Debug.Log("Terminal Activated");
                 camera.GetComponent<SurveillanceCamera>().changeViewDistance(0);
-                */
+                
             }
         }
     }

@@ -2537,7 +2537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698530655}
   - component: {fileID: 698530654}
-  - component: {fileID: 698530653}
+  - component: {fileID: 698530656}
   m_Layer: 0
   m_Name: DoorCollision
   m_TagString: Untagged
@@ -2545,18 +2545,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &698530653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698530652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1ad09982326333478fdfac48aae305e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &698530654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2598,6 +2586,18 @@ Transform:
   m_Father: {fileID: 663674970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &698530656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698530652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b113569bde023e44dafd0c68f5841e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &699631424
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,6 +3867,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1126042704}
   - component: {fileID: 1126042706}
+  - component: {fileID: 1126042711}
+  - component: {fileID: 1126042710}
+  - component: {fileID: 1126042709}
+  - component: {fileID: 1126042708}
   - component: {fileID: 1126042707}
   m_Layer: 0
   m_Name: Safecollider
@@ -3925,26 +3929,87 @@ MonoBehaviour:
   m_GameObject: {fileID: 1126042703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98313389d72cab64e8b5ca97fe373dd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 519fd38377f762649840426b25378c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
+  terminal: {fileID: 1126042703}
+  camera: {fileID: 1270140560}
   interactAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 693758730}
-        m_TargetAssemblyTypeName: DeskController, Assembly-CSharp
-        m_MethodName: OpenComputer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  isInRange: 0
+--- !u!114 &1126042708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126042703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519fd38377f762649840426b25378c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminal: {fileID: 1126042703}
+  camera: {fileID: 1736196872}
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  isInRange: 0
+--- !u!114 &1126042709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126042703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519fd38377f762649840426b25378c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminal: {fileID: 1126042703}
+  camera: {fileID: 1447782911}
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  isInRange: 0
+--- !u!114 &1126042710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126042703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519fd38377f762649840426b25378c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminal: {fileID: 1126042703}
+  camera: {fileID: 794461968}
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  isInRange: 0
+--- !u!114 &1126042711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126042703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519fd38377f762649840426b25378c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminal: {fileID: 1126042703}
+  camera: {fileID: 618552671}
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  isInRange: 0
 --- !u!1 &1133927692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3513846241719769271, guid: 2fd9d0eb817b84c45ba7c5e742f4a5ec, type: 3}
@@ -15386,7 +15451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885495596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.77, y: -2.41, z: 0}
+  m_LocalPosition: {x: -15.45, y: -2.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

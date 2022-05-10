@@ -130,12 +130,12 @@ public class Player : MonoBehaviour
         if (isBoost)
         {
             isBoost = false;
-            SPEED = 20f;
+            SPEED = 10f;
         }
         else
         {
             isBoost = true;
-            SPEED = 10f;
+            SPEED = 20f;
         }
     }
   
