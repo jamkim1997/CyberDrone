@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
-    private const float SPEED = 10f;
+    private float SPEED = 10f;
     
     private Rigidbody2D playerRigidbody2D;
     private Vector3 moveDir;
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     //bool for level 3
     bool allowMovement;
+    bool isBoost;
 
     private enum State {
         Normal,
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         SetStateNormal();
         //bool for level 3 
         allowMovement = true;
+        isBoost = false;
         
         //fix
         //FindObjectOfType<Audio_Manager>().Play("DroneFly");
@@ -123,5 +125,18 @@ public class Player : MonoBehaviour
         Debug.Log("Not Invisible");
     }
 
+    public void changeSpeed()
+    {
+        if (isBoost)
+        {
+            isBoost = false;
+            SPEED = 20f;
+        }
+        else
+        {
+            isBoost = true;
+            SPEED = 10f;
+        }
+    }
   
 }
