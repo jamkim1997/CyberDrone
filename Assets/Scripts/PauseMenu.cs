@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -51,6 +51,10 @@ public class PauseMenu : MonoBehaviour
     public void QuitMenu()
     {
         Debug.Log("An empty button that can be used for connecting the main menu");
-        //SceneManager.LoadScene("MainMenu");
+        pauseMenuUI.SetActive(false);
+        image.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        SceneManager.LoadScene("Main Menu");
     }
 }
