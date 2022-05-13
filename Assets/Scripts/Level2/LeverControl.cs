@@ -18,6 +18,7 @@ public class LeverControl : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip[] sounds;
     private L2Player player;
+    public Material lightOnMaterial;
 
     public FieldOfView[] FieldOfView;
 
@@ -71,9 +72,12 @@ public class LeverControl : MonoBehaviour
         camera.transform.DOMove(new Vector3(-10.41f, 5.32f, -10), 1);
         yield return new WaitForSeconds(1f);
 
-        SoundEffect("Siren");
         endGuards.DOLocalMoveY(9.5f, 3f);
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(1f);
+        SoundEffect("Siren");
+
+        yield return new WaitForSeconds(2f);
         exit.GetComponent<Animator>().SetBool("Open", true);
         SoundEffect("Door");
         yield return new WaitForSeconds(1.5f);
@@ -117,6 +121,19 @@ public class LeverControl : MonoBehaviour
         {
             Destroy(fieldOfView.gameObject);
         }
+    }
+
+    public void LightOn()
+    {
+        foreach (Renderer target in targetRenderer)
+        {
+            target.material = lightOnMaterial;
+        }
+        tileMaps[1].color = Color.white;
+        cctv.enabled = true;
+        cctv.GetComponent<Animator>().enabled = true;
+        guard.GetComponent<L2Guard>().enabled = true;
+        guard.GetComponent<Animator>().enabled = true;
     }
 
     private void SoundEffect(string name) {
