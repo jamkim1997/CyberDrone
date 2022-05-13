@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverUI : MonoBehaviour
 {
-    public void LoadScene(string sceneName)
+    public void Replay()
     {
-        SceneManager.LoadScene(sceneName);
+        GameManager.RePlay();
+    }
+
+    public void Menu()
+    {
+        GameManager.LoadScene("0");
     }
 }
 

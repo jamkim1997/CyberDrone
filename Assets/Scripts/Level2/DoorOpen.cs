@@ -17,18 +17,17 @@ public class DoorOpen : MonoBehaviour
     private Text percentText;
     [SerializeField]
     private Image slider;
-    private AudioSource audio;
+    private AudioSource audioSource;
     public AudioClip openDoor;
 
-    private void Awake()
-    {
-        character = FindObjectOfType<L2Player>().transform;
-        progressCanvas = transform.parent.GetComponentInChildren<Canvas>(true);
-        audio = GetComponent<AudioSource>();
-    }
+    public bool test;
 
     private void Start()
     {
+        character = FindObjectOfType<L2Player>().transform;
+        progressCanvas = transform.parent.GetComponentInChildren<Canvas>(true);
+        audioSource = GetComponent<AudioSource>();
+
         currentPercent = 0;
         maxPercent = 100;
         isWorking = true;
@@ -46,13 +45,13 @@ public class DoorOpen : MonoBehaviour
                     currentPercent += 0.5f;
                 }
 
-                if (audio.isPlaying)
+                if (audioSource.isPlaying)
                 {
-                    audio.UnPause();
+                    audioSource.UnPause();
                 }
                 else
                 {
-                    audio.Play();
+                    audioSource.Play();
                 }
 
                 changableText.text = "In Progress";
@@ -66,22 +65,29 @@ public class DoorOpen : MonoBehaviour
             }
         }
         else if(isWorking)
-        { 
-            audio.Pause();
+        {
+            audioSource.Pause();
             progressCanvas.gameObject.SetActive(false);
         }
 
         if(currentPercent >= maxPercent)
         {
-            audio.Stop();
+            audioSource.Stop();
             isWorking = false;
             progressCanvas.gameObject.SetActive(false);
+            currentPercent = 0;
             StartCoroutine(OpenTheGate());
         }
     }
 
     IEnumerator OpenTheGate()
     {
+        if (!MissionUI.IsMissionCompleted(2))
+        {
+            MissionUI.ClearText(2);
+        }
+        audioSource.clip = openDoor;
+        audioSource.Play();
         transform.parent.DOLocalMoveY(2, 2f);
         yield return new WaitForSeconds(2.5f);
         Destroy(this);

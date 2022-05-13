@@ -108,6 +108,7 @@ public class L2Guard : MonoBehaviour
     private void Alert()
     {
         state = State.Busy;
+        player.enabled = false;
 
         Vector3 targetPosition = player.GetPosition();
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
@@ -115,10 +116,9 @@ public class L2Guard : MonoBehaviour
 
 
         FindObjectOfType<GameManager>().EndGame();
-        //animator.Play("Guard");
-        //play anim
-        //Alert other guards
-        //gameover
+        Material material = Instantiate(fieldOfView.GetComponent<MeshRenderer>().material);
+        fieldOfView.GetComponent<MeshRenderer>().material = material;
+        material.SetColor("_FaceColor", Color.red);
     }
     private void HandleMovement()
     {

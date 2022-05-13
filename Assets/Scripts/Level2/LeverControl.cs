@@ -11,21 +11,23 @@ public class LeverControl : MonoBehaviour
     private int step = 0;
     public Tilemap[] tileMaps;
     private BoxCollider2D doorCollider;
-    private SurveillanceCamera cctv;
+    private L2CCTV cctv;
     public Transform guard;
     public Transform endGuards;
     public Transform exit;
-    private AudioSource audio;
+    private AudioSource audioSource;
     public AudioClip[] sounds;
+    private L2Player player;
 
     public FieldOfView[] FieldOfView;
 
     private void Awake()
     {
         doorCollider = FindObjectOfType<CardKey>().GetComponentInChildren<BoxCollider2D>();
-        cctv = FindObjectOfType<SurveillanceCamera>();
-        audio = GetComponent<AudioSource>();
+        cctv = FindObjectOfType<L2CCTV>();
+        audioSource = GetComponent<AudioSource>();
         FieldOfView = FindObjectsOfType<FieldOfView>();
+        player = FindObjectOfType<L2Player>(true);
     }
 
     private void ActivateLever() {
@@ -60,6 +62,7 @@ public class LeverControl : MonoBehaviour
 
     IEnumerator Emergency()
     {
+        player.enabled = false;
         doorCollider.enabled = true;
         SoundEffect("Siren");
         tileMaps[0].color = new Color32(0X8E, 0X62, 0X62, 0xFF);
@@ -72,13 +75,14 @@ public class LeverControl : MonoBehaviour
         endGuards.DOLocalMoveY(9.5f, 3f);
         yield return new WaitForSeconds(3f);
         exit.GetComponent<Animator>().SetBool("Open", true);
-
+        SoundEffect("Door");
         yield return new WaitForSeconds(1.5f);
 
         
         camera.transform.DOLocalMove(new Vector3(0, 0f, -10), 1);
 
         yield return new WaitForSeconds(1f);
+        player.enabled = true;
         Destroy(endGuards.gameObject);
     }
 
@@ -97,6 +101,7 @@ public class LeverControl : MonoBehaviour
 
     private void LightOff()
     {
+        MissionUI.ClearText(2);
         SoundEffect("Power");
         foreach (Renderer target in targetRenderer)
         {
@@ -118,15 +123,18 @@ public class LeverControl : MonoBehaviour
         switch (name)
         {
             case "Lever":
-                audio.clip = sounds[0];
+                audioSource.clip = sounds[0];
                 break;
             case "Siren":
-                audio.clip = sounds[1];
+                audioSource.clip = sounds[1];
                 break;
             case "Power":
-                audio.clip = sounds[2];
+                audioSource.clip = sounds[2];
+                break;
+            case "Door":
+                audioSource.clip = sounds[3];
                 break;
         }
-        audio.Play();
+        audioSource.Play();
     }
 }
