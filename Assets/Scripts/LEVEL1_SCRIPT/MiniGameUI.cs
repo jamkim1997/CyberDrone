@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MiniGameUI : MonoBehaviour
 
 {
-
+    private PlayerLevel1 character;
     public GameObject miniGameUI;
    
     public GameObject imagePanel;
@@ -20,9 +20,10 @@ public class MiniGameUI : MonoBehaviour
     public void miniGameOn()//Update()
     {
 
-
-            miniGameUI.SetActive(true);
-            imagePanel.SetActive(true);
+        character = FindObjectOfType<PlayerLevel1>();
+        character.enabled = false;
+        miniGameUI.SetActive(true);
+        imagePanel.SetActive(true);
 
            
 

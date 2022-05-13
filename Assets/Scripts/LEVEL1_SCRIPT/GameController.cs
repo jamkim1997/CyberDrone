@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
+   
     [SerializeField]
     private Sprite bgImage;
     public Sprite[] cards;
@@ -16,6 +17,10 @@ public class GameController : MonoBehaviour
     public GameObject miniGameUI;
 
     public GameObject imagePanel;
+
+    private PlayerLevel1 character;
+
+
 
     public Animator Red;
     public Animator blue;
@@ -35,6 +40,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+       
         GetButtons();
         AddGameCards();
         Shuffle(gameCards);
@@ -136,6 +142,8 @@ public class GameController : MonoBehaviour
             Destroy(imagePanel);
             Red.enabled = true;
             blue.enabled = true;
+            character = FindObjectOfType<PlayerLevel1>();
+            character.enabled = true;
 
 
         }
