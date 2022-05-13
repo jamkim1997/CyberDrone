@@ -15,7 +15,7 @@ public class Lever : MonoBehaviour
     [SerializeField]
     private Sprite onSprite;
 
-    private void Awake()
+    private void Start()
     {
         Character = FindObjectOfType<L2Player>().transform;
         leverControl = transform.parent.GetComponent<LeverControl>();

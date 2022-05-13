@@ -12,7 +12,7 @@ public class L2Player : MonoBehaviour
     private Rigidbody2D playerRigidbody2D;
     private Vector3 moveDir;
     private State state;
-    private AudioSource audio;
+    private AudioSource audioSource;
     private Animator animator;
     public AudioClip[] sounds;
     private bool isInVent;
@@ -27,7 +27,7 @@ public class L2Player : MonoBehaviour
     {
         playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         SetStateNormal();
     }
 
@@ -76,11 +76,7 @@ public class L2Player : MonoBehaviour
         }
         if (isMoving)
         {
-            if (!isInVent)
-            {
-                SoundEffect("movement");
-            }
-            else
+            if (isInVent)
             {
                 SoundEffect("vent");
             }
@@ -88,7 +84,7 @@ public class L2Player : MonoBehaviour
 
         if (moveX == 0f && moveY == 0f)
         {
-            audio.Pause();
+            audioSource.Pause();
         }
 
         moveDir = new Vector3(moveX, moveY).normalized;
@@ -126,21 +122,18 @@ public class L2Player : MonoBehaviour
     {
         switch (name)
         {
-            case "movement":
-                audio.clip = sounds[0];
-                break;
             case "vent":
-                audio.clip = sounds[1];
+                audioSource.clip = sounds[0];
                 break;
         }
 
-        if (audio.isPlaying)
+        if (audioSource.isPlaying)
         {
-            audio.UnPause();
+            audioSource.UnPause();
         }
         else
         {
-            audio.Play();
+            audioSource.Play();
         }
         
     }
@@ -151,6 +144,7 @@ public class L2Player : MonoBehaviour
     }
     public void GetOutTheVent()
     {
+        audioSource.Stop();
         isInVent = false;
     }
 

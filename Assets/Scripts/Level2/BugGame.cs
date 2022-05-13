@@ -32,22 +32,25 @@ public class BugGame : MonoBehaviour
 
     public Image targetRenderer;
 
-    private AudioSource audio;
+    private AudioSource audioSource;
     public AudioClip[] sounds;
 
     public Animator[] labs;
 
     public Transform fov;
 
+    public Sprite hackedImage;
+
     private void Awake()
     {
         ventScript = FindObjectOfType<Vent>();
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         character = FindObjectOfType<L2Player>();
+        character.enabled = false;
         Play();
     }
 
@@ -68,6 +71,10 @@ public class BugGame : MonoBehaviour
         bugs[target].transform.DOLocalMoveY(50, 1f);
         SoundEffect("Bug");
         yield return new WaitForSeconds(1f);
+
+        SoundEffect("bomb");
+        bugs[target].transform.DOShakeScale(0.5f, 2);
+        yield return new WaitForSeconds(0.5f);
 
         bugs[target].transform.DOLocalMoveY(-183, 0f);
         yield return new WaitForSeconds(0.5f);
@@ -96,10 +103,17 @@ public class BugGame : MonoBehaviour
 
     IEnumerator Clear()
     {
+        targetRenderer.transform.parent.GetChild(0).GetComponent<Image>().sprite = hackedImage;
+        foreach(GameObject fire in fires)
+        {
+            Destroy(fire);
+        }
+        SoundEffect("Computer");
+        yield return new WaitForSeconds(1.5f);
+
         transform.GetChild(0).gameObject.SetActive(false);
         Destroy(mainRoomGuards.gameObject);
         Destroy(fov.gameObject);
-        character.enabled = false;
         SoundEffect("Lab");
         foreach (Animator lab in labs)
         {
@@ -129,6 +143,8 @@ public class BugGame : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 
         character.enabled = true;
+        MissionUI.ClearText(1);
+        MissionUI.ClearText(2);
         Destroy(this);
     }
 
@@ -160,21 +176,27 @@ public class BugGame : MonoBehaviour
         switch (name)
         {
             case "Bug":
-                audio.clip = sounds[3];
+                audioSource.clip = sounds[3];
                 break;
             case "Vent":
-                audio.clip = sounds[1];
+                audioSource.clip = sounds[1];
                 break;
             case "Glitch":
-                audio.clip = sounds[2];
+                audioSource.clip = sounds[2];
                 break;
             case "Lab":
-                audio.clip = sounds[0];
+                audioSource.clip = sounds[0];
                 break;
             case "Guard":
-                audio.clip = sounds[4];
+                audioSource.clip = sounds[4];
+                break;
+            case "Computer":
+                audioSource.clip = sounds[6];
+                break;
+            case "bomb":
+                audioSource.clip = sounds[5];
                 break;
         }
-        audio.Play();
+        audioSource.Play();
     }
 }

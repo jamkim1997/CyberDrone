@@ -15,12 +15,10 @@ public class AccessDesktop : MonoBehaviour
     private Transform USB;
     [SerializeField]
     private Canvas miniGame;
-    private AudioSource audio;
 
-    private void Awake()
+    private void Start()
     {
         character = FindObjectOfType<L2Player>().transform;
-        audio = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -56,8 +54,9 @@ public class AccessDesktop : MonoBehaviour
             USB.GetComponentInChildren<Canvas>(true).gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                MissionUI.ClearText(1);
                 isUSB = true;
-                audio.Play();
+                GetComponent<AudioSource>().Play();
                 Destroy(USB.gameObject);
             }
         }

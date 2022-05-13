@@ -11,11 +11,15 @@ public class CardKey : MonoBehaviour
 
     private Transform keycard;
     private Canvas[] canvas;
+    private AudioSource audioSource;
 
-    private void Awake()
+    public AudioClip openDoor;
+
+    private void Start()
     {
         character = FindObjectOfType<L2Player>();
         canvas = GetComponentsInChildren<Canvas>(true);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -31,6 +35,9 @@ public class CardKey : MonoBehaviour
                 {
                     Destroy(canvas[0].gameObject);
                     childCollider.enabled = false;
+                    audioSource.clip = openDoor;
+                    audioSource.Play();
+
                     GetComponent<Animator>().SetBool("Open", true);
                 }
 
@@ -54,7 +61,8 @@ public class CardKey : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isKeyCard = true;
-                GetComponent<AudioSource>().Play();
+                audioSource.Play();
+                MissionUI.ClearText(2);
                 Destroy(keycard.gameObject);
             }
         }
@@ -73,6 +81,7 @@ public class CardKey : MonoBehaviour
     {
         transform.GetChild(0).GetComponent<BoxCollider2D>().enabled = true;
         GetComponent<Animator>().SetTrigger("Close");
+        MissionUI.ClearText(1);
         Destroy(this);
     }
 }
