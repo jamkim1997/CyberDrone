@@ -12,7 +12,6 @@ public class StartGame : MonoBehaviour
     {
         player = FindObjectOfType<L2Player>(true);
         missionUI = FindObjectOfType<MissionUI>();
-        GameManager.SetIsHidden(true);
     }
 
     void Start()

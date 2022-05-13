@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     {
         currentLevel++;
         SceneManager.LoadScene(currentLevel);
-        isHidden = false;
+
     }
 
     public static void RePlay()
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         return isHidden;
     }
 
-    public static void SetIsHidden(bool hidden)
+    public static void SetIsHidden(bool hidden = true)
     {
         isHidden = hidden;
     }
