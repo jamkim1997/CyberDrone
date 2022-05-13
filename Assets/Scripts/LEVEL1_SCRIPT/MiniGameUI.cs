@@ -17,10 +17,8 @@ public class MiniGameUI : MonoBehaviour
    
 
     // Update is called once per frame
-    void Update()
+    public void miniGameOn()//Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
 
 
             miniGameUI.SetActive(true);
@@ -32,7 +30,6 @@ public class MiniGameUI : MonoBehaviour
 
 
             Debug.Log("working");
-        }
         
     }
 
