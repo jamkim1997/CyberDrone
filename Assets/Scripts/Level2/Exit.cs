@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class Exit : MonoBehaviour
 {
-    public bool isHidden;
+    public bool IsHidden;
+    public bool IsLoaded;
+    public int sceneNum;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
         if(collision.name == "Character")
         {
-            if (isHidden)
+            if (IsLoaded)
+            {
+                GameManager.LoadScene("" + sceneNum);
+                return;
+            }
+
+            if (IsHidden)
             {
                 GameManager.SetIsHidden();
             }
 
             GameManager.NextScene();
         }
+    }
+
+    public void ChangeIsHidden(bool hidden=true)
+    {
+        IsHidden = hidden;
     }
 }
