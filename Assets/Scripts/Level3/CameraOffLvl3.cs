@@ -11,6 +11,7 @@ public class CameraOffLvl3 : MonoBehaviour
     public UnityEvent interactAction;
     bool isActive;
     public bool isInRange;
+    public AudioSource cameraOffSound;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class CameraOffLvl3 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                
+                cameraOffSound.Play();
                 interactAction.Invoke();
                 isActive = true;
                 Debug.Log("Terminal Activated");
