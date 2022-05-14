@@ -18,14 +18,13 @@ public class GameController : MonoBehaviour
 
     public GameObject imagePanel;
 
-    private PlayerLevel1 character;
+    private Player character;
 
 
 
     public Animator Red;
     public Animator blue;
 
-    private int countGuesses;
     private int countCorrectguesses;
     private int gamegusses;
 
@@ -93,8 +92,6 @@ public class GameController : MonoBehaviour
             btns[secondGuessIndex].image.sprite = gameCards[secondGuessIndex];
             btns[secondGuessIndex].interactable = false;
 
-
-            countGuesses++;
             StartCoroutine(CheckIfTheCardMatch());
              
         }
@@ -136,16 +133,12 @@ public class GameController : MonoBehaviour
         countCorrectguesses++;
         if (countCorrectguesses == gamegusses)
         {
-            Debug.Log("game finshed");
-            Debug.Log("It took you" + countGuesses + "many guess to finish the game");
             Destroy(miniGameUI);
             Destroy(imagePanel);
             Red.enabled = true;
             blue.enabled = true;
-            character = FindObjectOfType<PlayerLevel1>();
+            character = FindObjectOfType<Player>();
             character.enabled = true;
-
-
         }
 
     }
@@ -160,14 +153,5 @@ public class GameController : MonoBehaviour
             list[randomIndex] = temp;
         }
     }
-
-    /*public void UIDestory()
-    {
-
-        Destroy(miniGameUI);
-        Destroy(imagePanel);
-
-
-    }*/
 }
 

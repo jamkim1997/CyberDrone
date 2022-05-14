@@ -12,15 +12,11 @@ public class StartGame : MonoBehaviour
     {
         player = FindObjectOfType<L2Player>(true);
         missionUI = FindObjectOfType<MissionUI>();
-    }
-
-    void Start()
-    {
-        if(GameManager.GetIsHidden())
+        if (GameManager.GetIsHidden())
         {
             player.transform.position = new Vector3(-16.92f, -35.58f, 0);
             doorUI.position = new Vector3(-2.14f, -20.48f, 0);
-            List<string> missionList = new List<string> {"- Take a bug USB", "- Get into the office", "- Access the server", "- Do hacking the server", "- Escape through the vent", "- Take Key Card", "- Enter electricity room", "- Turn Off lights", "- Escape carefully !!!" };
+            List<string> missionList = new List<string> { "- Take a bug USB", "- Get into the office", "- Access the server", "- Do hacking the server", "- Escape through the vent", "- Take Key Card", "- Enter electricity room", "- Turn Off lights", "- Escape carefully !!!" };
 
             missionUI.SetMission(missionList);
         }

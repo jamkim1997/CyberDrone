@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Invisibility : MonoBehaviour
 {
-    public GameObject player;
-    //bool invisibility_active; 
-    //Vector3 pos;
-    // Start is called before the first frame update
+    private BoxCollider2D boxColldier2D;
+    private AudioSource audioSource;
+    private SpriteRenderer spriteRenderer;
+    private Player player;
+
     void Start()
     {
-        //invisibility_active = false;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false; 
-        
+        boxColldier2D = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -20,16 +22,20 @@ public class Invisibility : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            //invisibility_active = true; 
-            //pos = GameObject.FindGameObjectWithTag("Player").transform.position;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            player.GetComponent<Player>().BecomeInvisible();
-             
+            boxColldier2D.enabled = false;
+            audioSource.Play();
+            Color32 color = spriteRenderer.color;
+            spriteRenderer.color = new Color32(color.r, color.g, color.b, 80);
+            player.enabled = false;
+
         }
         if(Input.GetKeyUp(KeyCode.Space)) 
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            player.GetComponent<Player>().BecomeVisible();
+            boxColldier2D.enabled = true;
+            audioSource.Pause();
+            Color32 color = spriteRenderer.color;
+            spriteRenderer.color = new Color32(color.r, color.g, color.b, 255);
+            player.enabled = true;
         }
     }
 }

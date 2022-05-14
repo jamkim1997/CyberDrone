@@ -4,37 +4,34 @@ using UnityEngine;
 
 public class DocController : MonoBehaviour
 {
-    public bool hasTriggered;
-   
-    public Animator animator;
-    public Animator animator1;
-    public Animator animator2;
-    public Animator animator3;
-    public GameObject Doc;
-    public GameObject Doc1;
-    public GameObject Doc2;
-    public GameObject Doc3;
-   
+    private bool hasTriggered;
+    private int gainedDocs;
 
+    public Animator greenDoor;
 
     public void OpenDocBox()
     {
         if (!hasTriggered)
         {
+            MissionUI.ClearText(1);
             hasTriggered = true;
-            Debug.Log("DocBox is now open...");
-            animator.SetBool("Event_Animation", hasTriggered);
-            animator1.SetBool("Event_Animation", hasTriggered);
-            animator2.SetBool("Event_Animation", hasTriggered);
-            animator3.SetBool("Event_Animation", hasTriggered);
-            Doc.SetActive(true);
-            Doc1.SetActive(true);
-            Doc2.SetActive(true);
-            Doc3.SetActive(true);
+
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(3).gameObject.SetActive(true);
         }
     }
-   
 
+    public void GainDocument()
+    {
+        gainedDocs++;
 
-   
+        if (gainedDocs == 4)
+        {
+            MissionUI.ClearText(1);
+            greenDoor.enabled = true;
+            Destroy(this);
+        }
+    }
 }

@@ -6,17 +6,14 @@ using UnityEngine.Events;
 public class CameraOffLvl3 : MonoBehaviour
 {
 
-    public GameObject terminal;
-    public GameObject camera;
-    public UnityEvent interactAction;
-    bool isActive;
-    public bool isInRange;
-    public AudioSource cameraOffSound;
-    
-    // Start is called before the first frame update
-    void Start()
+    private SurveillanceCamera[] cctvs;
+    private bool isInRange;
+    private AudioSource audioSource;
+
+    private void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
+        cctvs = FindObjectsOfType<SurveillanceCamera>();
     }
 
     // Update is called once per frame
@@ -26,12 +23,14 @@ public class CameraOffLvl3 : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                cameraOffSound.Play();
-                interactAction.Invoke();
-                isActive = true;
-                Debug.Log("Terminal Activated");
-                camera.GetComponent<SurveillanceCamera>().changeViewDistance(0);
-                
+                audioSource.Play();
+                foreach (SurveillanceCamera cctv in cctvs)
+                {
+                    cctv.changeViewDistance(0);
+                }
+                MissionUI.ClearText(1);
+                Destroy(transform.parent.GetChild(0).gameObject);
+                Destroy(gameObject);
             }
         }
     }
@@ -41,14 +40,7 @@ public class CameraOffLvl3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player near terminal");
         }
-        /*
-        if (!isOpened)
-        {
-            isOpened = true;
-            door.transform.position = new Vector3 (16.5f, 12.5f, 0);
-        }*/
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -56,7 +48,6 @@ public class CameraOffLvl3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Player not near terminal");
         }
     }
 }

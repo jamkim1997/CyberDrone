@@ -110,15 +110,16 @@ public class L2CCTV : MonoBehaviour
     private void Alert()
     {
         state = State.Busy;
-
+        player.enabled = false;
         Vector3 targetPosition = player.GetPosition();
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
 
         FindObjectOfType<GameManager>().EndGame();
 
-        //Alert other guards
-        //gameover
+        Material material = Instantiate(fieldOfView.GetComponent<MeshRenderer>().material);
+        fieldOfView.GetComponent<MeshRenderer>().material = material;
+        material.SetColor("_FaceColor", Color.red);
     }
 
     public Vector3 GetPosition()

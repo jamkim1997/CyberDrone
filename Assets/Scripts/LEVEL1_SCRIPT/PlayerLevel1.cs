@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class PlayerLevel1 : MonoBehaviour
 {
-    public List<string> items;
-
-    public static PlayerLevel1 instance;
-
     private const float SPEED = 10f;
 
     private Rigidbody2D playerRigidbody2D;
     private Vector3 moveDir;
     private State state;
     public Animator animator;
-    public Animator GreenDoor;
-    public Animator SecoondGreenDoor;
    
     
     //bool for level 3
@@ -28,8 +22,7 @@ public class PlayerLevel1 : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        playerRigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        playerRigidbody2D = GetComponent<Rigidbody2D>();
         SetStateNormal();
         //bool for level 3 
         allowMovement = true;
@@ -50,12 +43,6 @@ public class PlayerLevel1 : MonoBehaviour
                 break;
         }
     }
-
-   void Start()
-    {
-        items = new List<string>();
-    }
-
 
 
     private void SetStateNormal()
@@ -116,35 +103,6 @@ public class PlayerLevel1 : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Collectable"))
-        {
-          
-            string itemType = collision.gameObject.GetComponent<Collectable>().itemtype;
-
-            print("we have collected a" + itemType);
-            items.Add(itemType);
-            Destroy(collision.gameObject);
-
-            if(items.Count == 4)
-            {
-                GreenDoor.enabled = true;
-
-                print("items = 4");
-
-               
-            }
-        }else if(collision.CompareTag("CollectSD"))
-        {
-            print("we have collected a sd" );
-            Destroy(collision.gameObject);
-            SecoondGreenDoor.enabled = true;
-
-        }
-
-    }
-
     public Vector3 GetPosition()
     {
         return transform.position;
@@ -154,22 +112,6 @@ public class PlayerLevel1 : MonoBehaviour
     {
         FindObjectOfType<GameManager>().EndGame();
 
-    }
-
-    //For level 3 invisibility system and functionality, stops players movement when space is pressed
-    public void BecomeInvisible()
-    {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        allowMovement = false;
-        Debug.Log("Invisible");
-    }
-
-    //For level 3 invisibility system and functionality, allows players movement when space is unpressed
-    public void BecomeVisible()
-    {
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        allowMovement = true;
-        Debug.Log("Not Invisible");
     }
 
 }

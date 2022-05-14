@@ -6,43 +6,20 @@ using UnityEngine.UI;
 public class MiniGameUI : MonoBehaviour
 
 {
-    private PlayerLevel1 character;
+    private Player character;
+
     public GameObject miniGameUI;
    
     public GameObject imagePanel;
 
-    //public float time = 30;
-    
-    // Start is called before the first frame update
-   
-
-    // Update is called once per frame
-    public void miniGameOn()//Update()
+    public void miniGameOn()
     {
-
-        character = FindObjectOfType<PlayerLevel1>();
+        character = FindObjectOfType<Player>();
         character.enabled = false;
         miniGameUI.SetActive(true);
         imagePanel.SetActive(true);
-
-           
-
-
-
-
-            Debug.Log("working");
-        
+        MissionUI.ClearText(2);
     }
-
-
-    /*IEnumerator Start()
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(miniGameUI);
-        Destroy(imagePanel);
-
-
-    }*/
 
 
     
