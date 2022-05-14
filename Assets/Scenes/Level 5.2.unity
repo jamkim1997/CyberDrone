@@ -25899,7 +25899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695741101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.99, y: -4.51, z: 0}
+  m_LocalPosition: {x: 11.47, y: -4.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28470,7 +28470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terminal: {fileID: 936026837}
-  camera: {fileID: 701920730}
+  camera: {fileID: 701920732}
   isInRange: 0
   clickSound: {fileID: 936026842}
 --- !u!82 &936026842
