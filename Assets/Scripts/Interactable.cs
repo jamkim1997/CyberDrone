@@ -24,6 +24,7 @@ public class Interactable : MonoBehaviour
                 Debug.Log("Key was pressed------!!!");
                 doorOpenEvent.Invoke();
                 FindObjectOfType<Audio_Manager>().Play("DoorOpening");
+                Destroy(this);
             }
         }
 

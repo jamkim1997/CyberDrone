@@ -3,26 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class StartGameL1 : MonoBehaviour
+public class TutorialStart : MonoBehaviour
 {
-    private MissionUI missionUI;
     public RectTransform canvas;
     private Player player;
 
-    private void Awake()
+    void Start()
     {
-        missionUI = FindObjectOfType<MissionUI>();
-        List<string> missionList = new List<string> { "- Steal confidential document", "- Turn Off camera", "- Collect 4 document", "- Open the safe", "- Steal SD card ", "- Validate SD card with a server", "Escape safely"};
-
-        missionUI.SetMission(missionList);
-
-        player = FindObjectOfType<Player>();
-    }
-
-    private void Start()
-    {
-        player.enabled = false;
         StartCoroutine(DeleteStartUI());
+        player = FindObjectOfType<Player>();
+        player.enabled = false;
     }
 
     IEnumerator DeleteStartUI()
@@ -36,4 +26,5 @@ public class StartGameL1 : MonoBehaviour
         Destroy(canvas.parent.gameObject);
 
     }
+
 }
