@@ -28,12 +28,33 @@ public class MissionUI : MonoBehaviour
         {
             IsCompleted1 = false;
             IsCompleted2 = false;
-            ChangeText(1, missions[index]);
-            index++;
-            if(index < missions.Count)
+
+            if(missions.Count % 2 == 0)
             {
+                ChangeText(1, missions[index]);
+                index++;
                 ChangeText(2, missions[index]);
                 index++;
+            }
+            else
+            {
+                if(index == missions.Count - 1)
+                {
+                    ChangeText(1, missions[index]);
+                    ChangeText(2, "");
+                    return;
+                }
+
+                ChangeText(1, missions[index]);
+                index++;
+                ChangeText(2, missions[index]);
+                index++;
+            }
+
+            
+            if(index < missions.Count)
+            {
+                
             }
             else
             {

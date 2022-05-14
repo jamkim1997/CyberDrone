@@ -13,8 +13,8 @@ public class BoxController : MonoBehaviour
     {
         if(!hasTriggered)
         {
+            MissionUI.ClearText(2);
             hasTriggered = true;
-            Debug.Log("Safe is now open...");
             animator.SetBool("Event_Animation", hasTriggered);
             SDCard.SetActive(true);
         }
