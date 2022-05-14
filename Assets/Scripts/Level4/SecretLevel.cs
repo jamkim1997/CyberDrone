@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SecretLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void MoveScene()
     {
-        
-    }
+        bool isloaded = FindObjectOfType<Exit>().IsLoaded;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(isloaded)
+        {
+            FindObjectOfType<Exit>().IsLoaded = false;
+        }
+        else
+        {
+            FindObjectOfType<Exit>().IsLoaded = true;
+        }
     }
 }

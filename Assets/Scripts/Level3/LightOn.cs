@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class LightOn : MonoBehaviour
 {
-    private Renderer[] renderers;
+    private SpriteRenderer[] renderers;
+    private TilemapRenderer[] tilesRenderer;
     public Material lightOnMaterial;
     public Material lightOffMaterial;
     public Tilemap wallTile;
@@ -13,12 +14,17 @@ public class LightOn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderers = FindObjectsOfType<Renderer>();
+        renderers = FindObjectsOfType<SpriteRenderer>();
+        tilesRenderer = FindObjectsOfType<TilemapRenderer>();
     }
 
     private void TurnOnLight()
     {
         foreach(Renderer renderer in renderers)
+        {
+            renderer.material = lightOnMaterial;
+        }
+        foreach(Renderer renderer in tilesRenderer)
         {
             renderer.material = lightOnMaterial;
         }
@@ -28,6 +34,10 @@ public class LightOn : MonoBehaviour
     private void TurnOffLight()
     {
         foreach (Renderer renderer in renderers)
+        {
+            renderer.material = lightOffMaterial;
+        }
+        foreach (Renderer renderer in tilesRenderer)
         {
             renderer.material = lightOffMaterial;
         }

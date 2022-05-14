@@ -39,7 +39,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-       
         GetButtons();
         AddGameCards();
         Shuffle(gameCards);
@@ -99,7 +98,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator CheckIfTheCardMatch()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.4f);
         if(firstGuseePuzzle == secondGuessPuzzle)
         {
             yield return new WaitForSeconds(.2f);

@@ -17,6 +17,8 @@ public class L2Guard : MonoBehaviour
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
 
+    private SpriteRenderer spriteRenderer;
+
     private FieldOfView fieldOfView;
 
     public Transform field;
@@ -38,6 +40,7 @@ public class L2Guard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<L2Player>();
         state = State.Waiting;
         waitTimer = waitTimeList[0];
@@ -75,8 +78,6 @@ public class L2Guard : MonoBehaviour
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
         }
-
-        Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
     }
 
     private void FindTargetPlayer()
@@ -132,9 +133,18 @@ public class L2Guard : MonoBehaviour
                     state = State.Moving;
                 }
                 break;
+
             case State.Moving:
                 Vector3 waypoint = waypointList[waypointIndex];
 
+                if(waypoint.x < transform.position.x)
+                {
+                    spriteRenderer.flipX = true;
+                }
+                else
+                {
+                    spriteRenderer.flipX = false;
+                }
                 Vector3 waypointDir = (waypoint - transform.position).normalized;
                 lastMoveDir = waypointDir;
 

@@ -15,7 +15,7 @@ public class Exit : MonoBehaviour
         {
             if (IsLoaded)
             {
-                GameManager.LoadScene("" + sceneNum);
+                GameManager.LoadScene($"{sceneNum}");
                 return;
             }
 

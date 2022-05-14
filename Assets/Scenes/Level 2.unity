@@ -58146,7 +58146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHidden: 0
-  IsLoaded: 0
+  IsLoaded: 1
   sceneNum: 7
 --- !u!1 &753554816
 GameObject:
@@ -84901,7 +84901,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1872799940}
   - component: {fileID: 1872799939}
-  - component: {fileID: 1872799938}
   - component: {fileID: 1872799937}
   - component: {fileID: 1872799941}
   m_Layer: 0
@@ -84931,33 +84930,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1872799938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872799936}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3927fbc7fb202b7499798aff8a458d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypointList:
-  - {x: -3, y: -20, z: 0}
-  - {x: -16.53, y: -20, z: 0}
-  - {x: -16.53, y: -29, z: 0}
-  - {x: -8.27, y: -29, z: 0}
-  waitTimeList:
-  - 2
-  - 2
-  - 2
-  - 2
-  aimDirection: {x: 0.4, y: -1, z: 0}
-  player: {fileID: 0}
-  pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
-  fov: 40
-  viewDistance: 8
 --- !u!212 &1872799939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87922,7 +87894,7 @@ GameObject:
   - component: {fileID: 2041928743}
   - component: {fileID: 2041928744}
   - component: {fileID: 2041928745}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Server Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,7 +26,7 @@ public class CameraOffLvl3 : MonoBehaviour
                 audioSource.Play();
                 foreach (SurveillanceCamera cctv in cctvs)
                 {
-                    cctv.changeViewDistance(0);
+                    cctv.changeViewDistance(0.1f);
                 }
                 MissionUI.ClearText(1);
                 Destroy(transform.parent.GetChild(0).gameObject);

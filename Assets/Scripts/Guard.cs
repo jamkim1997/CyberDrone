@@ -17,6 +17,8 @@ public class Guard : MonoBehaviour
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
 
+    private SpriteRenderer spriteRenderer;
+
     private FieldOfView fieldOfView;
 
     //public Animator animator;
@@ -35,6 +37,7 @@ public class Guard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         state = State.Waiting;
         waitTimer = waitTimeList[0];
         lastMoveDir = aimDirection;
@@ -114,8 +117,15 @@ public class Guard : MonoBehaviour
             break;
         case State.Moving:
             Vector3 waypoint = waypointList[waypointIndex];
-
-            Vector3 waypointDir = (waypoint - transform.position).normalized;
+            if (waypoint.x < transform.position.x)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+                Vector3 waypointDir = (waypoint - transform.position).normalized;
             lastMoveDir = waypointDir;
 
             float distanceBefore = Vector3.Distance(transform.position, waypoint);

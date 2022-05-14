@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LastLever : MonoBehaviour
+public class LeverL3 : MonoBehaviour
 {
     private Transform Character;
 
@@ -17,7 +17,7 @@ public class LastLever : MonoBehaviour
 
     private void Start()
     {
-        Character = FindObjectOfType<L2Player>(true).transform;
+        Character = FindObjectOfType<Player>(true).transform;
         canvas = GetComponentInChildren<Canvas>(true);
         leverControl = FindObjectOfType<LeverControl>();
         audioSource = GetComponent<AudioSource>();
@@ -31,9 +31,15 @@ public class LastLever : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 isActivated = true;
-                leverControl.LightOn();
                 audioSource.Play();
-                FindObjectOfType<Exit>().IsLoaded = false;
+                if(name == "leverL3")
+                {
+                    FindObjectOfType<Exit>().IsLoaded = false;
+                }
+                else
+                {
+                    FindObjectOfType<Exit>().IsLoaded = true;
+                }
                 GetComponent<SpriteRenderer>().sprite = onSprite;
                 Destroy(canvas.gameObject);
             }
