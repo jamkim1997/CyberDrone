@@ -10817,7 +10817,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Press Q : switch Boost\nBut will cause more sound so more dangerous \n\nSpace
+  m_Text: "Press Q : Switch Boost\nBut will cause more sound so more dangerous \n\nSpace
     : Invisible"
 --- !u!222 &116779673
 CanvasRenderer:
