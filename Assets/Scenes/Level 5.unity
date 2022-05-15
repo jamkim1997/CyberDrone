@@ -27278,8 +27278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHidden: 0
-  IsLoaded: 0
-  sceneNum: 0
+  IsLoaded: 1
+  sceneNum: 11
 --- !u!1 &1148012315
 GameObject:
   m_ObjectHideFlags: 0
@@ -28483,8 +28483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHidden: 0
-  IsLoaded: 0
-  sceneNum: 0
+  IsLoaded: 1
+  sceneNum: 11
 --- !u!1 &1330529287
 GameObject:
   m_ObjectHideFlags: 0
