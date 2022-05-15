@@ -27,7 +27,6 @@ public class LeverControl : MonoBehaviour
         doorCollider = FindObjectOfType<CardKey>().GetComponentInChildren<BoxCollider2D>();
         cctv = FindObjectOfType<L2CCTV>();
         audioSource = GetComponent<AudioSource>();
-        FieldOfView = FindObjectsOfType<FieldOfView>();
         player = FindObjectOfType<L2Player>(true);
     }
 
@@ -116,8 +115,11 @@ public class LeverControl : MonoBehaviour
         cctv.GetComponent<Animator>().enabled = false;
         guard.GetComponent<L2Guard>().enabled = false;
         guard.GetComponent<Animator>().enabled = false;
+
+
+        FieldOfView = FindObjectsOfType<FieldOfView>();
         //delete the field of view
-        foreach(FieldOfView fieldOfView in FieldOfView)
+        foreach (FieldOfView fieldOfView in FieldOfView)
         {
             Destroy(fieldOfView.gameObject);
         }

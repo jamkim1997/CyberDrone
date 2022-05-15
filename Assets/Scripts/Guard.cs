@@ -38,6 +38,7 @@ public class Guard : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = FindObjectOfType<Player>();
         state = State.Waiting;
         waitTimer = waitTimeList[0];
         lastMoveDir = aimDirection;
@@ -95,16 +96,17 @@ public class Guard : MonoBehaviour
     private void Alert() {
         state = State.Busy;
 
+        player.enabled = false;
+
         Vector3 targetPosition = player.GetPosition();
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
-        
+
 
         FindObjectOfType<GameManager>().EndGame();
-        //animator.Play("Guard");
-        //play anim
-        //Alert other guards
-        //gameover
+        Material material = Instantiate(fieldOfView.GetComponent<MeshRenderer>().material);
+        fieldOfView.GetComponent<MeshRenderer>().material = material;
+        material.SetColor("_FaceColor", Color.red);
     }       
     private void HandleMovement() {
         switch (state) {

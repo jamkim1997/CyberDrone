@@ -21,6 +21,7 @@ public class Safes : MonoBehaviour
                 exits[i].GetComponent<BoxCollider2D>().enabled = true;
             }
             MissionUI.ClearText(1);
+            MissionUI.ClearText(2);
             Destroy(this);
         } 
     }

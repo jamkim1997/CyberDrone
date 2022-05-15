@@ -32,7 +32,10 @@ public class LeverL3 : MonoBehaviour
             {
                 isActivated = true;
                 audioSource.Play();
-                if(name == "leverL3")
+
+                bool isloaded = FindObjectOfType<Exit>().IsLoaded;
+
+                if (isloaded)
                 {
                     FindObjectOfType<Exit>().IsLoaded = false;
                 }

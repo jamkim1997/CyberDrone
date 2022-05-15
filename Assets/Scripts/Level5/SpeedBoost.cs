@@ -22,7 +22,7 @@ public class SpeedBoost : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             guards = GameObject.FindGameObjectsWithTag("Guard");
             //guards = FindObjectsOfType<Guard>();

@@ -8435,7 +8435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHidden: 0
-  IsLoaded: 1
+  IsLoaded: 0
   sceneNum: 8
 --- !u!1 &699631424
 GameObject:

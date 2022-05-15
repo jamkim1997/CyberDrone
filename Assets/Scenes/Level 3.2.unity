@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsHidden: 0
-  IsLoaded: 0
+  IsLoaded: 1
   sceneNum: 5
 --- !u!61 &431620236
 BoxCollider2D:
