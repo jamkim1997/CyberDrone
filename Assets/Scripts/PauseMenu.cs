@@ -18,7 +18,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Escape key is pressed");
             if (isPaused)
             {
                 Resume();
@@ -32,7 +31,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resume playing");
         pauseMenuUI.SetActive(false);
         image.SetActive(false);
         Time.timeScale = 1f;
@@ -41,7 +39,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("Pausing the game");
         pauseMenuUI.SetActive(true);
         image.SetActive(true);
         Time.timeScale = 0f;
@@ -50,7 +47,6 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitMenu()
     {
-        Debug.Log("An empty button that can be used for connecting the main menu");
         pauseMenuUI.SetActive(false);
         image.SetActive(false);
         Time.timeScale = 1f;

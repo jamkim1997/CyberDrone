@@ -7,11 +7,20 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     static int currentLevel = 1;
+    static int sound = 10;
     static bool isHidden;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if(FindObjectsOfType<GameManager>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        
     }
 
     public void EndGame()
@@ -51,6 +60,14 @@ public class GameManager : MonoBehaviour
     public static void SetIsHidden(bool hidden = true)
     {
         isHidden = hidden;
+    }
+
+    public static void SetSound(int soundLevel)
+    {
+        sound = soundLevel;
+    }
+    public static int GetSound() {
+        return sound;
     }
 
 }

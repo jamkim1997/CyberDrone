@@ -14,7 +14,7 @@ public Sound[] sounds;
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = s.volume * ((float)GameManager.GetSound() / 10);
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
@@ -54,11 +54,5 @@ public Sound[] sounds;
     void Start()
     {
         Play("IntroMusic");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

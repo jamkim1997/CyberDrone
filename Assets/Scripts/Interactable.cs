@@ -5,25 +5,17 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public bool isInRange;
-    public KeyCode interactKey;
+    private bool isInRange;
     public UnityEvent interactAction;
-    public UnityEvent doorOpenEvent;
-    public GameObject door;
-
-    bool isOpened = false;
-
+    public Transform text;
 
     void Update()
     {
         if(isInRange)
         {
-            if(Input.GetKeyDown(interactKey))
+            if(Input.GetKeyDown(KeyCode.E))
             {
                 interactAction.Invoke();
-                Debug.Log("Key was pressed------!!!");
-                doorOpenEvent.Invoke();
-                FindObjectOfType<Audio_Manager>().Play("DoorOpening");
                 Destroy(this);
             }
         }
@@ -34,14 +26,8 @@ public class Interactable : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("Player in range");
+            text.gameObject.SetActive(true);
         }
-        /*
-        if (!isOpened)
-        {
-            isOpened = true;
-            door.transform.position = new Vector3 (16.5f, 12.5f, 0);
-        }*/
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,7 +35,7 @@ public class Interactable : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("Player is not in range");
+            text.gameObject.SetActive(false);
         }
     }
 }
