@@ -252,8 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -269,10 +267,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &5848402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10872,8 +10867,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -10889,10 +10882,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &137431548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14142,6 +14132,10 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   positionToMoveTo: {x: 1, y: 1, z: 0}
 --- !u!212 &191825050
 SpriteRenderer:
@@ -15313,8 +15307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -15330,10 +15322,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &458686822
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15405,8 +15394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -15422,10 +15409,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &465875502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26415,6 +26399,10 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   positionToMoveTo: {x: 1, y: 3.5, z: 0}
 --- !u!212 &701920733
 SpriteRenderer:
@@ -28559,7 +28547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terminal: {fileID: 936026837}
-  camera: {fileID: 701920732}
+  cameraScript: {fileID: 0}
   isInRange: 0
   clickSound: {fileID: 936026842}
 --- !u!82 &936026842
@@ -34025,6 +34013,10 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite: []
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1575457605
 SpriteRenderer:
@@ -35102,7 +35094,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1746287638
 MonoBehaviour:
   m_ObjectHideFlags: 0

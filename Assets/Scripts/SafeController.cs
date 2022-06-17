@@ -23,7 +23,6 @@ public class SafeController : MonoBehaviour
         if(name == "SafeTut")
         {
             MissionUI.ClearText(1);
-            Destroy(transform.GetChild(0).gameObject);
             Destroy(tutCompleteText.gameObject);
             tutExitText.gameObject.SetActive(true);
             StartCoroutine(MoveCamera());

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class CameraOff : MonoBehaviour
 {
     public GameObject terminal;
-    public SurveillanceCamera camera;
+    public SurveillanceCamera cameraScript;
     public bool isInRange;
     public AudioSource clickSound;
     
@@ -24,7 +24,7 @@ public class CameraOff : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 clickSound.Play();
-                camera.changeViewDistance(0);
+                cameraScript.changeViewDistance(0);
             }
         }
     }

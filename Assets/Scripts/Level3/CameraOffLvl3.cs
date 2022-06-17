@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class CameraOffLvl3 : MonoBehaviour
 {
-
+    public Transform text;
     private SurveillanceCamera[] cctvs;
     private bool isInRange;
     private AudioSource audioSource;
@@ -40,6 +40,7 @@ public class CameraOffLvl3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
+            text.gameObject.SetActive(true);
         }
     }
 
@@ -48,6 +49,7 @@ public class CameraOffLvl3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
+            text.gameObject.SetActive(false);
         }
     }
 }

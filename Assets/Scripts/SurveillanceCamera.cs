@@ -5,14 +5,20 @@ using UnityEngine;
 public class SurveillanceCamera : MonoBehaviour
 {
     [SerializeField] private Vector3 aimDirection;
-
     [SerializeField] private Player player;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
     [SerializeField] private float speed;
-
+    private SpriteRenderer spriteRenderer;
+    public Sprite[] sprite;
+    public LayerMask layerMask;
     private FieldOfView fieldOfView;
+
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private enum State
     {
@@ -60,6 +66,7 @@ public class SurveillanceCamera : MonoBehaviour
         {
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
+            UpdateSprite(GetAimDir().x);
         }
 
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
@@ -76,33 +83,40 @@ public class SurveillanceCamera : MonoBehaviour
         
         lastMoveDir = Vector3.Lerp(aimDirection, target, time);
         yield return null;
-
         }
-        
+    }
+
+    private void UpdateSprite(float x)
+    {
+        if(x < -0.5f)
+        {
+            spriteRenderer.sprite = sprite[0];
+            spriteRenderer.flipX = false;
+        }
+        else if(x < 0.5f)
+        {
+            spriteRenderer.flipX = false;
+            spriteRenderer.sprite = sprite[1];
+        }
+        else if(x > 0.5f)
+        {
+            spriteRenderer.flipX = true;
+            spriteRenderer.sprite = sprite[0];
+        }
+
     }
 
     private void FindTargetPlayer()
     {
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
-            // Player inside viewDistance
             Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
             if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
             {
-                // Player inside Field of View
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
                 if (raycastHit2D.collider != null)
                 {
-                    // Hit something
-                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
-                    {
-                        // Hit Player
-                        Alert();
-                    }
-                    else
-                    {
-                        // Hit something else
-                    }
+                    Alert();
                 }
             }
         }

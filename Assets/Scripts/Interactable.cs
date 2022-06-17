@@ -16,6 +16,7 @@ public class Interactable : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 interactAction.Invoke();
+                Destroy(text.gameObject);
                 Destroy(this);
             }
         }

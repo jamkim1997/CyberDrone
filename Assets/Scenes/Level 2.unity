@@ -57002,7 +57002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &491898722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63635,7 +63635,6 @@ GameObject:
   m_Component:
   - component: {fileID: 817220216}
   - component: {fileID: 817220215}
-  - component: {fileID: 817220213}
   - component: {fileID: 817220217}
   m_Layer: 0
   m_Name: CCTV
@@ -63644,26 +63643,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &817220213
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817220212}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2d9f202b5bb7f745822f2b85bd52e6c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &817220215
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63724,7 +63703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 817220212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.018239, y: 8.88, z: 0.09135294}
+  m_LocalPosition: {x: -10.018239, y: 9.32, z: 0.09135294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63747,8 +63726,14 @@ MonoBehaviour:
   player: {fileID: 1787435853}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
-  viewDistance: 8
+  viewDistance: 6.25
   speed: 0.1
+  sprite:
+  - {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  - {fileID: -99273080, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!1 &848789625
 GameObject:
@@ -67942,7 +67927,7 @@ GameObject:
   - component: {fileID: 1573840864}
   - component: {fileID: 1573840863}
   - component: {fileID: 1573840865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78497,7 +78482,7 @@ GameObject:
   - component: {fileID: 1787435846}
   - component: {fileID: 1787435853}
   - component: {fileID: 1787435852}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -79864,7 +79849,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1814029756}
   - component: {fileID: 1814029759}
-  - component: {fileID: 1814029758}
   - component: {fileID: 1814029757}
   - component: {fileID: 1814029760}
   m_Layer: 0
@@ -79909,29 +79893,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1814029758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814029755}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3927fbc7fb202b7499798aff8a458d8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypointList:
-  - {x: -7.82, y: -5, z: 0}
-  - {x: 13.27, y: -5, z: 0}
-  waitTimeList:
-  - 1
-  - 1
-  aimDirection: {x: 0.4, y: -1, z: 0}
-  player: {fileID: 0}
-  pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
-  fov: 40
-  viewDistance: 8
 --- !u!212 &1814029759
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -4104,6 +4104,12 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite:
+  - {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  - {fileID: -99273080, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   positionToMoveTo: {x: 1, y: 1, z: 0}
 --- !u!212 &191825050
 SpriteRenderer:
@@ -4243,8 +4249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -4260,10 +4264,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &194907353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23155,6 +23156,12 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite:
+  - {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  - {fileID: -99273080, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   positionToMoveTo: {x: 1, y: 3.5, z: 0}
 --- !u!212 &701920733
 SpriteRenderer:
@@ -23199,7 +23206,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 42999.996, y: 47999.996}
@@ -28351,8 +28358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -28368,10 +28373,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &1330529290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29276,8 +29278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -29293,10 +29293,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &1499317682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29905,6 +29902,12 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite:
+  - {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  - {fileID: -99273080, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1575457605
 SpriteRenderer:
@@ -34003,8 +34006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83c98207ccf69e42b02ac02f745e05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInRange: 0
-  interactKey: 101
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -34020,10 +34021,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  doorOpenEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  door: {fileID: 0}
+  text: {fileID: 0}
 --- !u!61 &1797727063
 BoxCollider2D:
   m_ObjectHideFlags: 0

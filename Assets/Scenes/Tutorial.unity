@@ -3614,7 +3614,7 @@ GameObject:
   - component: {fileID: 646582114}
   - component: {fileID: 646582113}
   - component: {fileID: 646582112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CollisionDetectors4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22130,7 +22130,6 @@ GameObject:
   - component: {fileID: 2007892466}
   - component: {fileID: 2007892465}
   - component: {fileID: 2007892467}
-  - component: {fileID: 2007892468}
   m_Layer: 0
   m_Name: CCTV
   m_TagString: Untagged
@@ -22198,7 +22197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007892464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.42, y: 11.95, z: 0}
+  m_LocalPosition: {x: 9.42, y: 12.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22223,27 +22222,13 @@ MonoBehaviour:
   fov: 40
   viewDistance: 8
   speed: 0.3
+  sprite:
+  - {fileID: -562295499, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  - {fileID: -99273080, guid: 356a10025f54c4216a6cf821f0ebc980, type: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
   positionToMoveTo: {x: -1, y: -2, z: 0}
---- !u!95 &2007892468
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007892464}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a2d9f202b5bb7f745822f2b85bd52e6c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2031611808
 GameObject:
   m_ObjectHideFlags: 0
