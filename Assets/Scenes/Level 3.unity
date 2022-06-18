@@ -9368,7 +9368,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 30
   viewDistance: 5
-  speed: 0.3
+  speed: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -10974,7 +10974,7 @@ MonoBehaviour:
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 30
   viewDistance: 5
-  speed: 0.3
+  speed: 0.5
   layerMask:
     serializedVersion: 2
     m_Bits: 64
