@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class L2Guard : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class L2Guard : MonoBehaviour
     public Transform field;
     private bool isRunning;
     private Animator animator;
+    private NavMeshAgent nav;
+    public bool IsAIOn;
+    public LayerMask layerMask;
 
     private enum State
     {
@@ -42,6 +46,11 @@ public class L2Guard : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<L2Player>();
+        if (GetComponent<NavMeshAgent>()) {
+            nav = GetComponent<NavMeshAgent>();
+            nav.updateRotation = false;
+            nav.updateUpAxis = false;
+        }
     }
 
     void Start()
@@ -93,15 +102,10 @@ public class L2Guard : MonoBehaviour
             if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
             {
                 // Player inside Field of View
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
-                if (raycastHit2D.collider != null)
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
+                if (raycastHit2D.collider)
                 {
-                    // Hit something
-                    if (raycastHit2D.collider.gameObject.GetComponent<L2Player>() != null)
-                    {
-                        // Hit Player
-                        Alert();
-                    }
+                    Alert();
                 }
             }
         }
@@ -146,30 +150,48 @@ public class L2Guard : MonoBehaviour
                     animator.SetBool("IsRunning", true);
                 }
 
-                Vector3 waypoint = waypointList[waypointIndex];
-                if(waypoint.x < transform.position.x)
+                if (!IsAIOn)
                 {
-                    spriteRenderer.flipX = true;
+                    Vector3 waypoint = waypointList[waypointIndex];
+                    if(waypoint.x < transform.position.x)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                    }
+                    Vector3 waypointDir = (waypoint - transform.position).normalized;
+                    lastMoveDir = waypointDir;
+
+                
+                    float distanceBefore = Vector2.Distance(transform.position, waypoint);
+                    //animation
+                    transform.position = transform.position + waypointDir * speed * Time.deltaTime;
+                    float distanceAfter = Vector2.Distance(transform.position, waypoint);
+
+                    float arriveDistance = .1f;
+                    if (distanceAfter < arriveDistance || distanceBefore <= distanceAfter)
+                    {
+                        waitTimer = waitTimeList[waypointIndex];
+                        waypointIndex = (waypointIndex + 1) % waypointList.Count;
+                        state = State.Waiting;
+                    }
                 }
+
                 else
                 {
-                    spriteRenderer.flipX = false;
-                }
-                Vector3 waypointDir = (waypoint - transform.position).normalized;
-                lastMoveDir = waypointDir;
-
-                float distanceBefore = Vector3.Distance(transform.position, waypoint);
-                //animation
-                transform.position = transform.position + waypointDir * speed * Time.deltaTime;
-                float distanceAfter = Vector3.Distance(transform.position, waypoint);
-
-                float arriveDistance = .1f;
-                if (distanceAfter < arriveDistance || distanceBefore <= distanceAfter)
-                {
-                    // Go to next waypoint
-                    waitTimer = waitTimeList[waypointIndex];
-                    waypointIndex = (waypointIndex + 1) % waypointList.Count;
-                    state = State.Waiting;
+                    nav.SetDestination(player.GetPosition());
+                    if (player.GetPosition().x < transform.position.x)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                    }
+                    Vector3 waypointDir = (player.GetPosition() - transform.position).normalized;
+                    lastMoveDir = waypointDir;
                 }
                 break;
         }

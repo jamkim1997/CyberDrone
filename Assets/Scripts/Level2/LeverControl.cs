@@ -133,7 +133,6 @@ public class LeverControl : MonoBehaviour
         }
         tileMaps[1].color = Color.white;
         cctv.enabled = true;
-        cctv.GetComponent<Animator>().enabled = true;
         guard.GetComponent<L2Guard>().enabled = true;
         guard.GetComponent<Animator>().enabled = true;
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Vent : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Vent : MonoBehaviour
     public Transform keyCard;
     private CardKey cardKeyScript;
     private L2Player playerScripe;
+    public L2Guard labGuard;
 
     private bool isWorking;
 
@@ -40,6 +42,10 @@ public class Vent : MonoBehaviour
         {
             if (ventEntryColliders[1])
             {
+                labGuard.IsAIOn = false;
+                Destroy(labGuard.GetComponent<NavMeshAgent>());
+                FindObjectOfType<Audio_Manager>().Play("IntroMusic");
+                FindObjectOfType<Audio_Manager>().Pause("Run");
                 playerScripe.GetIntoTheVent();
                 spriteRenderer.sprite = sprites[1];
                 ventEntryColliders[0].enabled = true;

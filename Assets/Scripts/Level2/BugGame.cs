@@ -9,7 +9,6 @@ public class BugGame : MonoBehaviour
 {
     private L2Player character;
     private int target;
-
     private int currentLevel = 1;
 
     private int maxLevel = 10;
@@ -36,7 +35,7 @@ public class BugGame : MonoBehaviour
     public AudioClip[] sounds;
 
     public Animator[] labs;
-
+    public Transform labGuard;
     public Transform fov;
 
     public Sprite hackedImage;
@@ -96,9 +95,14 @@ public class BugGame : MonoBehaviour
         if (currentLevel == maxLevel)
         {
             currentLevel = 0;
+            targetRenderer.sprite = sprites[4];
             StartCoroutine(Clear());
         }
-        Play();
+        else
+        {
+            Play();
+        }
+        
     }
 
     IEnumerator Clear()
@@ -139,12 +143,24 @@ public class BugGame : MonoBehaviour
         SoundEffect("Vent");
         yield return new WaitForSeconds(2f);
 
+        
+
+        L2Guard labGuardScript = labGuard.GetComponent<L2Guard>();
+        labGuardScript.enabled = false;
+        labGuardScript.IsAIOn = true;
+        camera.transform.DOMove(new Vector3(labGuard.position.x, labGuard.position.y, -10), 1f);
+        yield return new WaitForSeconds(1f);
+        labGuard.GetChild(1).gameObject.SetActive(true);
+        FindObjectOfType<Audio_Manager>().Play("Run");
+
+        yield return new WaitForSeconds(1f);
+
         camera.transform.DOLocalMove(new Vector3(0, 0, -10), 0.5f);
         yield return new WaitForSeconds(0.8f);
-
         character.enabled = true;
         MissionUI.ClearText(1);
         MissionUI.ClearText(2);
+        labGuardScript.enabled = true;
         Destroy(this);
     }
 

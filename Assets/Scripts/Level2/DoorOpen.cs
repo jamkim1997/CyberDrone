@@ -61,6 +61,7 @@ public class DoorOpen : MonoBehaviour
             }
             else
             {
+                audioSource.Pause();
                 changableText.text = "'E' to open";
             }
         }
