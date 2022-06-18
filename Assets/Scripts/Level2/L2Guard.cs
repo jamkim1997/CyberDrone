@@ -22,8 +22,8 @@ public class L2Guard : MonoBehaviour
     private FieldOfView fieldOfView;
 
     public Transform field;
-
-    //public Animator animator;
+    private bool isRunning;
+    private Animator animator;
 
     private enum State
     {
@@ -37,11 +37,15 @@ public class L2Guard : MonoBehaviour
     private float waitTimer;
     private Vector3 lastMoveDir;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<L2Player>();
+    }
+
+    void Start()
+    {
         state = State.Waiting;
         waitTimer = waitTimeList[0];
 
@@ -98,10 +102,6 @@ public class L2Guard : MonoBehaviour
                         // Hit Player
                         Alert();
                     }
-                    else
-                    {
-                        // Hit something else
-                    }
                 }
             }
         }
@@ -126,8 +126,13 @@ public class L2Guard : MonoBehaviour
         switch (state)
         {
             case State.Waiting:
+                if(isRunning)
+                {
+                    isRunning = false;
+                    animator.SetBool("IsRunning", false);
+                }
+
                 waitTimer -= Time.deltaTime;
-                //animation
                 if (waitTimer <= 0f)
                 {
                     state = State.Moving;
@@ -135,8 +140,13 @@ public class L2Guard : MonoBehaviour
                 break;
 
             case State.Moving:
-                Vector3 waypoint = waypointList[waypointIndex];
+                if(!isRunning)
+                {
+                    isRunning = true;
+                    animator.SetBool("IsRunning", true);
+                }
 
+                Vector3 waypoint = waypointList[waypointIndex];
                 if(waypoint.x < transform.position.x)
                 {
                     spriteRenderer.flipX = true;
@@ -172,5 +182,13 @@ public class L2Guard : MonoBehaviour
     public Vector3 GetAimDir()
     {
         return lastMoveDir;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            Alert();
+        }
     }
 }

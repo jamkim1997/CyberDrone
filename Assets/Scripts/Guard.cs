@@ -21,7 +21,8 @@ public class Guard : MonoBehaviour
 
     private FieldOfView fieldOfView;
 
-    //public Animator animator;
+    private Animator animator;
+    private bool isRunning;
 
     private enum State {
         Waiting,
@@ -34,11 +35,15 @@ public class Guard : MonoBehaviour
     private float waitTimer;
     private Vector3 lastMoveDir;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        animator = GetComponent < Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<Player>();
+    }
+
+    void Start()
+    {
         state = State.Waiting;
         waitTimer = waitTimeList[0];
         lastMoveDir = aimDirection;
@@ -48,13 +53,12 @@ public class Guard : MonoBehaviour
         fieldOfView.SetViewDistance(viewDistance);        
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (state) {
         default:
         case State.Waiting:
-        case State.Moving:
+            case State.Moving:
             HandleMovement();
             FindTargetPlayer();
             break;
@@ -86,8 +90,6 @@ public class Guard : MonoBehaviour
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
                         // Hit Player
                         Alert();
-                    } else {
-                        // Hit something else
                     }
                 }
             }
@@ -95,29 +97,46 @@ public class Guard : MonoBehaviour
     } 
     private void Alert() {
         state = State.Busy;
-
         player.enabled = false;
 
         Vector3 targetPosition = player.GetPosition();
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
-
+        if (targetPosition.x < transform.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
 
         FindObjectOfType<GameManager>().EndGame();
         Material material = Instantiate(fieldOfView.GetComponent<MeshRenderer>().material);
         fieldOfView.GetComponent<MeshRenderer>().material = material;
         material.SetColor("_FaceColor", Color.red);
-    }       
+    }
+
     private void HandleMovement() {
         switch (state) {
         case State.Waiting:
             waitTimer -= Time.deltaTime;
-            //animation
+                if(isRunning) {
+                    isRunning = false;
+                    animator.SetBool("IsRunning", false);
+                }
+
             if (waitTimer <= 0f) {
                 state = State.Moving;
             }
             break;
+
         case State.Moving:
+                if(!isRunning)
+                {
+                    isRunning = true;
+                    animator.SetBool("IsRunning", true);
+                }
             Vector3 waypoint = waypointList[waypointIndex];
             if (waypoint.x < transform.position.x)
             {
@@ -159,5 +178,11 @@ public class Guard : MonoBehaviour
         viewDistance = Distance;
         fieldOfView.SetViewDistance(viewDistance);
         //viewDistance = 10;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player") { Alert(); }
+
     }
 }

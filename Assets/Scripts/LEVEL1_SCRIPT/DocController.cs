@@ -5,10 +5,13 @@ using UnityEngine;
 public class DocController : MonoBehaviour
 {
     private bool hasTriggered;
+    private CameraMovement cameraMovement;
     private int gainedDocs;
-
-    public Animator greenDoor;
-
+    
+    private void Awake()
+    {
+        cameraMovement = FindObjectOfType<CameraMovement>();
+    }
     public void OpenDocBox()
     {
         if (!hasTriggered)
@@ -29,8 +32,8 @@ public class DocController : MonoBehaviour
 
         if (gainedDocs == 4)
         {
+            cameraMovement.CameraWait();
             MissionUI.ClearText(1);
-            greenDoor.enabled = true;
             Destroy(this);
         }
     }

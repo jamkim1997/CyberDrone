@@ -5,19 +5,18 @@ using DG.Tweening;
 
 public class CameraMovement : MonoBehaviour
 {
+    public Animator animator;
     
     public void CameraWait()
     {
         StartCoroutine(WaitCamera());
-
-
     }
+
     private IEnumerator WaitCamera()
     {
         Player playerscript = FindObjectOfType<Player>();
         Guard guard = FindObjectOfType<Guard>();
         SurveillanceCamera[] cameras = FindObjectsOfType<SurveillanceCamera>();
-
 
         playerscript.enabled = false;
         guard.enabled = false;
@@ -27,17 +26,16 @@ public class CameraMovement : MonoBehaviour
             camera.enabled = false;
         }
 
-        Camera.main.transform.DOMove(new Vector3(16.5f, -1.0f, -10f), 2f); // Àý´ñ°ª
+        Camera.main.transform.DOMove(new Vector3(16.5f, -3.0f, -10f), 2f); // ??????
         Camera.main.DOOrthoSize(4, 2f);
 
         yield return new WaitForSeconds(2f);
 
-        
-       
+        animator.enabled = true;
 
-        yield return new WaitForSeconds(2f);
-        Camera.main.transform.DOLocalMove(new Vector3(0, 0, -10f), 2f); // »ó´ñ°ª
-        Camera.main.DOOrthoSize(4, 2f);
+        yield return new WaitForSeconds(1f);
+        Camera.main.transform.DOLocalMove(new Vector3(0, 0, -10f), 2f); // ??????
+        Camera.main.DOOrthoSize(5.3f, 2f);
 
         yield return new WaitForSeconds(2f);
 
@@ -47,8 +45,6 @@ public class CameraMovement : MonoBehaviour
         foreach (SurveillanceCamera camera in cameras)
         {
             camera.enabled = true;
-
-
         }
 
     }
