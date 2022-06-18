@@ -17,6 +17,7 @@ public class BoxController : MonoBehaviour
             hasTriggered = true;
             animator.SetBool("Event_Animation", hasTriggered);
             SDCard.SetActive(true);
+        
         }
     }
 }

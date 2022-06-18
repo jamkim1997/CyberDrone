@@ -87,7 +87,6 @@ public class MissionUI : MonoBehaviour
 
     public static void ClearText(int num)
     {
-        print($"Clear{num}");
         TextMeshProUGUI text = GetText(num);
         text.color = Color.red;
         text.fontStyle = FontStyles.Strikethrough;

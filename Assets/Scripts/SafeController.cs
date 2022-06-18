@@ -22,6 +22,8 @@ public class SafeController : MonoBehaviour
     {
         if(name == "SafeTut")
         {
+            Destroy(transform.GetChild(2).gameObject);
+            FindObjectOfType<Exit>().transform.GetChild(0).gameObject.SetActive(true);
             MissionUI.ClearText(1);
             Destroy(tutCompleteText.gameObject);
             tutExitText.gameObject.SetActive(true);
@@ -40,6 +42,8 @@ public class SafeController : MonoBehaviour
     {
         Player characterScript = FindObjectOfType<Player>();
         characterScript.enabled = false;
+        Vector3 currentCameraPosition = Camera.main.transform.position;
+
         Camera.main.DOOrthoSize(1, 2);
         Camera.main.transform.DOMove(new Vector3(16, 12.39f, -10f), 2);
 
@@ -48,7 +52,7 @@ public class SafeController : MonoBehaviour
         FindObjectOfType<Audio_Manager>().Play("DoorOpening");
         yield return new WaitForSeconds(1f);
         Camera.main.DOOrthoSize(9.8f, 0.5f);
-        Camera.main.transform.DOMove(new Vector3(1.9f, 3.61f, -10f), 0.5f);
+        Camera.main.transform.DOMove(currentCameraPosition, 0.5f);
 
         yield return new WaitForSeconds(0.5f);
         characterScript.enabled = true;

@@ -9,6 +9,7 @@ public class CameraOffLvl3 : MonoBehaviour
     private SurveillanceCamera[] cctvs;
     private bool isInRange;
     private AudioSource audioSource;
+    public GameObject[] icons;
 
     private void Awake()
     {
@@ -30,6 +31,8 @@ public class CameraOffLvl3 : MonoBehaviour
                 }
                 MissionUI.ClearText(1);
                 Destroy(transform.parent.GetChild(0).gameObject);
+                Destroy(icons[0]);
+                icons[1].SetActive(true);
                 Destroy(gameObject);
             }
         }

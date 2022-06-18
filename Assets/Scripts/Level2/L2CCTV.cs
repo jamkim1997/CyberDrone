@@ -66,7 +66,6 @@ public class L2CCTV : MonoBehaviour
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
 
-            print(GetAimDir().x);
             cameraAnim.UpdateSprite(GetAimDir().x);
         }
 

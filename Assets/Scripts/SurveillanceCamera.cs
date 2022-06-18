@@ -61,7 +61,6 @@ public class SurveillanceCamera : MonoBehaviour
         {
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
-            print(GetAimDir().x);
             cameraAnim.UpdateSprite(GetAimDir().x);
         }
 

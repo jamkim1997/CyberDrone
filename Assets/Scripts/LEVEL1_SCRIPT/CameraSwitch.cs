@@ -22,10 +22,8 @@ public class CameraSwitch : MonoBehaviour
             StopCamera.GetComponentInChildren<FieldOfView>().gameObject.SetActive(false);
             StopCamera.GetComponent<SurveillanceCamera>().enabled = false;
             MissionUI.ClearText(2);
+            Destroy(transform.GetChild(0).gameObject);
             Destroy(this);
         }
     }
-
-    
-
 }

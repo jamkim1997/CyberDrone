@@ -32,6 +32,8 @@ public class Lever : MonoBehaviour
                 leverControl.LeverDown();
                 GetComponent<SpriteRenderer>().sprite = onSprite;
                 Destroy(canvas.gameObject);
+                Destroy(transform.GetChild(0).gameObject);
+                Destroy(this);
             }
         }
     }

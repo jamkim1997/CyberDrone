@@ -19,7 +19,7 @@ public class LeverControl : MonoBehaviour
     public AudioClip[] sounds;
     private L2Player player;
     public Material lightOnMaterial;
-
+    public GameObject minimapIcon;
     public FieldOfView[] FieldOfView;
 
     private void Awake()
@@ -112,7 +112,6 @@ public class LeverControl : MonoBehaviour
         }
 
         cctv.enabled = false;
-        cctv.GetComponent<Animator>().enabled = false;
         guard.GetComponent<L2Guard>().enabled = false;
         guard.GetComponent<Animator>().enabled = false;
 
@@ -123,6 +122,7 @@ public class LeverControl : MonoBehaviour
         {
             Destroy(fieldOfView.gameObject);
         }
+        minimapIcon.SetActive(true);
     }
 
     public void LightOn()

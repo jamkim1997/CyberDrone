@@ -20,7 +20,7 @@ public class DoorOpen : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip openDoor;
 
-    public bool test;
+    public GameObject minimapIcon;
 
     private void Start()
     {
@@ -86,6 +86,7 @@ public class DoorOpen : MonoBehaviour
         {
             MissionUI.ClearText(2);
         }
+        Destroy(minimapIcon);
         audioSource.clip = openDoor;
         audioSource.Play();
         transform.parent.DOLocalMoveY(2, 2f);

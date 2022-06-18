@@ -13,6 +13,7 @@ public class CardKey : MonoBehaviour
     private Canvas[] canvas;
     private AudioSource audioSource;
 
+    public GameObject[] minimapIcons;
     public AudioClip openDoor;
 
     private void Start()
@@ -26,7 +27,7 @@ public class CardKey : MonoBehaviour
     {
         if (canvas[0])
         {
-            if (Vector2.Distance(character.transform.position, transform.position) < 1.5f)
+            if (Vector2.Distance(character.transform.position, transform.position) < 2f)
             {
                 Text text = GetComponentsInChildren<Text>(true)[0];
                 string msg = "'E' to interact";
@@ -37,7 +38,10 @@ public class CardKey : MonoBehaviour
                     childCollider.enabled = false;
                     audioSource.clip = openDoor;
                     audioSource.Play();
-
+                    foreach(GameObject icon in minimapIcons)
+                    {
+                        icon.SetActive(true);
+                    }
                     GetComponent<Animator>().SetBool("Open", true);
                 }
 
@@ -55,7 +59,7 @@ public class CardKey : MonoBehaviour
             }
         }
 
-        if (keycard && !isKeyCard && Vector2.Distance(character.transform.position, keycard.position) < 1.5f)
+        if (keycard && !isKeyCard && Vector2.Distance(character.transform.position, keycard.position) < 2f)
         {
             canvas[1].gameObject.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5236222430075626551}
   - component: {fileID: 5236222430075626544}
   - component: {fileID: 5236222430075626545}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: FieldOfView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 87
+    m_Bits: 95
 --- !u!33 &5236222430075626544
 MeshFilter:
   m_ObjectHideFlags: 0

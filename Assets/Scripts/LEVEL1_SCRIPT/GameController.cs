@@ -20,8 +20,8 @@ public class GameController : MonoBehaviour
 
     private Player character;
 
-
-
+    public GameObject[] minimapIcons;
+    public GameObject minimapIcon;
     public Animator Red;
     public Animator blue;
 
@@ -77,7 +77,6 @@ public class GameController : MonoBehaviour
             firstGuess = true;
             firstGuessIndex = int.Parse(UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.name);
 
-            Debug.Log(firstGuessIndex);
             firstGuseePuzzle = gameCards[firstGuessIndex].name;
             btns[firstGuessIndex].image.sprite = gameCards[firstGuessIndex];
             btns[firstGuessIndex].interactable = false;
@@ -136,8 +135,13 @@ public class GameController : MonoBehaviour
             Destroy(imagePanel);
             Red.enabled = true;
             blue.enabled = true;
+            Destroy(minimapIcon);
             character = FindObjectOfType<Player>();
             character.enabled = true;
+            foreach(GameObject icon in minimapIcons)
+            {
+                icon.SetActive(true);
+            }
         }
 
     }
