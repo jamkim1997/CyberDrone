@@ -16,7 +16,11 @@ public class Interactable : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 interactAction.Invoke();
-                Destroy(text.gameObject);
+                if (text)
+                {
+                    Destroy(text.gameObject);
+                }
+                
                 Destroy(this);
             }
         }
@@ -27,7 +31,11 @@ public class Interactable : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isInRange = true;
-            text.gameObject.SetActive(true);
+            if (text)
+            {
+                text.gameObject.SetActive(true);
+            }
+            
         }
     }
 
@@ -36,7 +44,11 @@ public class Interactable : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            text.gameObject.SetActive(false);
+            if (text)
+            {
+                text.gameObject.SetActive(false);
+            }
+            
         }
     }
 }

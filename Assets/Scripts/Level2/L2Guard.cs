@@ -115,12 +115,12 @@ public class L2Guard : MonoBehaviour
         Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
         lastMoveDir = dirToTarget;
 
-
         FindObjectOfType<GameManager>().EndGame();
         Material material = Instantiate(fieldOfView.GetComponent<MeshRenderer>().material);
         fieldOfView.GetComponent<MeshRenderer>().material = material;
         material.SetColor("_FaceColor", Color.red);
     }
+
     private void HandleMovement()
     {
         switch (state)

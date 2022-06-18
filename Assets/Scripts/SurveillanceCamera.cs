@@ -10,15 +10,9 @@ public class SurveillanceCamera : MonoBehaviour
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
     [SerializeField] private float speed;
-    private SpriteRenderer spriteRenderer;
-    public Sprite[] sprite;
     public LayerMask layerMask;
+    private CameraAnim cameraAnim;
     private FieldOfView fieldOfView;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
 
     private enum State
     {
@@ -35,6 +29,7 @@ public class SurveillanceCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraAnim = GetComponent<CameraAnim>();
         player = FindObjectOfType<Player>();
         state = State.Surveilling;
         lastMoveDir = aimDirection;
@@ -66,7 +61,8 @@ public class SurveillanceCamera : MonoBehaviour
         {
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
-            UpdateSprite(GetAimDir().x);
+            print(GetAimDir().x);
+            cameraAnim.UpdateSprite(GetAimDir().x);
         }
 
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
@@ -86,25 +82,7 @@ public class SurveillanceCamera : MonoBehaviour
         }
     }
 
-    private void UpdateSprite(float x)
-    {
-        if(x < -0.5f)
-        {
-            spriteRenderer.sprite = sprite[0];
-            spriteRenderer.flipX = false;
-        }
-        else if(x < 0.5f)
-        {
-            spriteRenderer.flipX = false;
-            spriteRenderer.sprite = sprite[1];
-        }
-        else if(x > 0.5f)
-        {
-            spriteRenderer.flipX = true;
-            spriteRenderer.sprite = sprite[0];
-        }
-
-    }
+    
 
     private void FindTargetPlayer()
     {

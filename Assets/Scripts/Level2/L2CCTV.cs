@@ -12,14 +12,13 @@ public class L2CCTV : MonoBehaviour
     [SerializeField] private float viewDistance = 50f;
     [SerializeField] private float speed;
 
-    public Sprite[] sprite;
     public LayerMask layerMask;
-    private SpriteRenderer spriteRenderer;
+    private CameraAnim cameraAnim;
     private FieldOfView fieldOfView;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        cameraAnim = GetComponent<CameraAnim>();
     }
     private enum State
     {
@@ -66,7 +65,9 @@ public class L2CCTV : MonoBehaviour
         {
             fieldOfView.SetOrigin(transform.position);
             fieldOfView.SetAimDirection(GetAimDir());
-            UpdateSprite(GetAimDir().x);
+
+            print(GetAimDir().x);
+            cameraAnim.UpdateSprite(GetAimDir().x);
         }
 
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
@@ -84,25 +85,6 @@ public class L2CCTV : MonoBehaviour
             lastMoveDir = Vector3.Lerp(aimDirection, target, time);
             yield return null;
 
-        }
-
-    }
-    private void UpdateSprite(float x)
-    {
-        if (x < -0.5f)
-        {
-            spriteRenderer.sprite = sprite[0];
-            spriteRenderer.flipX = false;
-        }
-        else if (x < 0.5f)
-        {
-            spriteRenderer.flipX = false;
-            spriteRenderer.sprite = sprite[1];
-        }
-        else if (x > 0.5f)
-        {
-            spriteRenderer.flipX = true;
-            spriteRenderer.sprite = sprite[0];
         }
 
     }
