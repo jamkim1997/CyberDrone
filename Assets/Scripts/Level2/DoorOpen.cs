@@ -42,7 +42,7 @@ public class DoorOpen : MonoBehaviour
             {
                 if (currentPercent <= 100)
                 {
-                    currentPercent += 0.5f;
+                    currentPercent += 10f * Time.deltaTime;
                 }
 
                 if (audioSource.isPlaying)

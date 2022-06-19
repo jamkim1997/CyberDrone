@@ -9,9 +9,9 @@ public class BugGame : MonoBehaviour
 {
     private L2Player character;
     private int target;
-    private int currentLevel = 1;
+    private int currentLevel = 0;
 
-    private int maxLevel = 10;
+    private int maxLevel = 5;
 
     private bool isPlaying;
 
@@ -79,13 +79,13 @@ public class BugGame : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         EventSystem.current.SetSelectedGameObject(null);
-        if (currentLevel == 4)
+        if (currentLevel == 1)
         {
             SoundEffect("Glitch");
             fires[0].SetActive(true);
             fires[1].SetActive(true);
         }
-        if (currentLevel == 8)
+        if (currentLevel == 3)
         {
             SoundEffect("Glitch");
             fires[2].SetActive(true);

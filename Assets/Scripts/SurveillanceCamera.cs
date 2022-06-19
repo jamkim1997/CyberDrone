@@ -23,14 +23,16 @@ public class SurveillanceCamera : MonoBehaviour
 
     private State state;
     private Vector3 lastMoveDir;
-
     public Vector3 positionToMoveTo;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         cameraAnim = GetComponent<CameraAnim>();
         player = FindObjectOfType<Player>();
+    }
+
+    void Start()
+    {
         state = State.Surveilling;
         lastMoveDir = aimDirection;
 
@@ -42,16 +44,12 @@ public class SurveillanceCamera : MonoBehaviour
         StartCoroutine(LerpPosition(positionToMoveTo, speed));
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (state){
             default:
             case State.Surveilling:
                 FindTargetPlayer();
-                break;
-            case State.Alert:
-                Alert();
                 break;
             case State.Busy:
                 break;
@@ -69,26 +67,20 @@ public class SurveillanceCamera : MonoBehaviour
 
     IEnumerator LerpPosition(Vector3 target, float speed)
     {
-
         while (true)
         {
         float time = Mathf.PingPong(Time.time * speed, 1);
-        //Vector3 startPosition = lastMoveDir;          
-        
-        
         lastMoveDir = Vector3.Lerp(aimDirection, target, time);
         yield return null;
         }
     }
-
-    
 
     private void FindTargetPlayer()
     {
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
             Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
+            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 1.5f)
             {
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
                 if (raycastHit2D.collider != null)
@@ -122,12 +114,6 @@ public class SurveillanceCamera : MonoBehaviour
     public Vector3 GetAimDir()
     {
         return lastMoveDir;
-    }
-
-
-    bool isApproximate(float a, float b, float tolerance)
-    {
-        return Mathf.Abs (a - b) < tolerance;
     }
 
 

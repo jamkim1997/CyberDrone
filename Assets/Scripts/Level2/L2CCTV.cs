@@ -93,7 +93,7 @@ public class L2CCTV : MonoBehaviour
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
             Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
+            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 1.5f)
             {
                 // Player inside Field of View
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
