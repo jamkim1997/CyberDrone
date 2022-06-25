@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
+    public LayerMask layerMask;
     private float speed = 5f;
 
     [SerializeField] private List<Vector3> waypointList;
@@ -21,7 +22,7 @@ public class Guard : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     private FieldOfView fieldOfView;
-
+    
     private Animator animator;
     private bool isRunning;
     private NavMeshAgent nav;
@@ -91,9 +92,10 @@ public class Guard : MonoBehaviour
         if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance) {
             // Player inside viewDistance
             Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f) {
+            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 1.5f) {
                 // Player inside Field of View
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
+                print(raycastHit2D.collider.name);
                 if (raycastHit2D.collider != null) {
                     // Hit something
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {
@@ -106,6 +108,7 @@ public class Guard : MonoBehaviour
     } 
     private void Alert() {
         state = State.Busy;
+        nav.enabled = false;
         player.enabled = false;
 
         Vector3 targetPosition = player.GetPosition();

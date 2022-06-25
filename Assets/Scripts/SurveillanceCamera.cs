@@ -77,15 +77,26 @@ public class SurveillanceCamera : MonoBehaviour
 
     private void FindTargetPlayer()
     {
-        if (Vector3.Distance(GetPosition(), player.GetPosition()) < viewDistance)
+        if (Vector2.Distance(GetPosition(), player.GetPosition()) < viewDistance)
         {
-            Vector3 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
-            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 1.5f)
+            // Player inside viewDistance
+            Vector2 dirToPlayer = (player.GetPosition() - GetPosition()).normalized;
+            if (Vector2.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
             {
+                // Player inside Field of View
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
                 if (raycastHit2D.collider != null)
                 {
-                    Alert();
+                    // Hit something
+                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
+                    {
+                        // Hit Player
+                        Alert();
+                    }
+                    else
+                    {
+                        // Hit something else
+                    }
                 }
             }
         }
