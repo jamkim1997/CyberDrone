@@ -10,6 +10,7 @@ TagManager:
   - Guard
   - Door
   - DoorScript
+  - CollectTool
   layers:
   - Default
   - TransparentFX

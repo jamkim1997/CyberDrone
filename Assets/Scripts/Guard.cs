@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Guard : MonoBehaviour
 {
-    private const float speed = 5f;
+    private float speed = 5f;
 
     [SerializeField] private List<Vector3> waypointList;
     [SerializeField] private List<float> waitTimeList;
@@ -12,7 +13,7 @@ public class Guard : MonoBehaviour
 
     [SerializeField] private Vector3 aimDirection;
 
-    [SerializeField] private Player player;
+    private Player player;
     [SerializeField] private Transform pfFieldOfView;
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 50f;
@@ -23,6 +24,8 @@ public class Guard : MonoBehaviour
 
     private Animator animator;
     private bool isRunning;
+    private NavMeshAgent nav;
+    public bool IsAIOn;
 
     private enum State {
         Waiting,
@@ -40,6 +43,12 @@ public class Guard : MonoBehaviour
         animator = GetComponent < Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<Player>();
+        if (GetComponent<NavMeshAgent>())
+        {
+            nav = GetComponent<NavMeshAgent>();
+            nav.updateRotation = false;
+            nav.updateUpAxis = false;
+        }
     }
 
     void Start()
@@ -137,31 +146,51 @@ public class Guard : MonoBehaviour
                     isRunning = true;
                     animator.SetBool("IsRunning", true);
                 }
-            Vector3 waypoint = waypointList[waypointIndex];
-            if (waypoint.x < transform.position.x)
-            {
-                spriteRenderer.flipX = true;
-            }
-            else
-            {
-                spriteRenderer.flipX = false;
-            }
-                Vector3 waypointDir = (waypoint - transform.position).normalized;
-            lastMoveDir = waypointDir;
 
-            float distanceBefore = Vector3.Distance(transform.position, waypoint);
-            //animation
-            transform.position = transform.position + waypointDir * speed * Time.deltaTime;
-            float distanceAfter = Vector3.Distance(transform.position, waypoint);
+                if (!IsAIOn)
+                {
+                    Vector3 waypoint = waypointList[waypointIndex];
+                    if (waypoint.x < transform.position.x)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                    }
+                    Vector3 waypointDir = (waypoint - transform.position).normalized;
+                    lastMoveDir = waypointDir;
 
-            float arriveDistance = .1f;
-            if (distanceAfter < arriveDistance || distanceBefore <= distanceAfter) {
-                // Go to next waypoint
-                waitTimer = waitTimeList[waypointIndex];
-                waypointIndex = (waypointIndex + 1) % waypointList.Count;
-                state = State.Waiting;
-            }
-            break;
+
+                    float distanceBefore = Vector2.Distance(transform.position, waypoint);
+                    //animation
+                    transform.position = transform.position + waypointDir * speed * Time.deltaTime;
+                    float distanceAfter = Vector2.Distance(transform.position, waypoint);
+
+                    float arriveDistance = .1f;
+                    if (distanceAfter < arriveDistance || distanceBefore <= distanceAfter)
+                    {
+                        waitTimer = waitTimeList[waypointIndex];
+                        waypointIndex = (waypointIndex + 1) % waypointList.Count;
+                        state = State.Waiting;
+                    }
+                }
+
+                else
+                {
+                    nav.SetDestination(player.GetPosition());
+                    if (player.GetPosition().x < transform.position.x)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
+                    else
+                    {
+                        spriteRenderer.flipX = false;
+                    }
+                    Vector3 waypointDir = (player.GetPosition() - transform.position).normalized;
+                    lastMoveDir = waypointDir;
+                }
+                break;
         }
     }    
     public Vector3 GetPosition() {
@@ -185,4 +214,5 @@ public class Guard : MonoBehaviour
         if(collision.tag == "Player") { Alert(); }
 
     }
+ 
 }

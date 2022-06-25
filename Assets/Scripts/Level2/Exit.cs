@@ -32,4 +32,9 @@ public class Exit : MonoBehaviour
     {
         IsHidden = hidden;
     }
+
+    public void SetLoaded(bool value)
+    {
+        IsLoaded = value;
+    }
 }
