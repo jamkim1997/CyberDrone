@@ -1,14 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class Interactable : MonoBehaviour
+public class TerminalForCode : MonoBehaviour
 {
     private bool isInRange;
-    public UnityEvent interactAction;
+    [SerializeField] GameObject minimap;
+
     public Transform text;
-    [SerializeField] bool save;
+    public Transform codeUI;
+
+    Player player;
+
+    private void Awake()
+    {
+        player = FindObjectOfType<Player>();
+    }
+    public void OnDestroy()
+    {
+        Destroy(text.gameObject);
+        Destroy(minimap);
+        player.enabled = true;
+    }
 
     void Update()
     {
@@ -16,17 +29,8 @@ public class Interactable : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
-                interactAction.Invoke();
-                if (text && !save)
-                {
-                    Destroy(text.gameObject);
-                }
-
-                if(!save)
-                {
-                    Destroy(this);
-                }
-               
+                codeUI.gameObject.SetActive(true);
+                player.enabled = false;
             }
         }
 

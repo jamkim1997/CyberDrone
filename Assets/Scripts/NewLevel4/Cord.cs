@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 using TMPro;
 
 public class Cord : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] BoxCollider2D exitCollider;
+
+    Player player;
+    Exit exitScript;
     Button[] buttons;
     string input = "";
     string answer = "2413";
@@ -15,6 +20,8 @@ public class Cord : MonoBehaviour
     private void Awake()
     {
         buttons = GetComponentsInChildren<Button>();
+        player = FindObjectOfType<Player>();
+        exitScript = FindObjectOfType<Exit>();
     }
 
     private void ResetInput()
@@ -25,11 +32,33 @@ public class Cord : MonoBehaviour
         }
         input = "";
         wrongTime++;
+
         if(wrongTime > 1)
         {
-            // Show the cpord
+            transform.GetChild(0).gameObject.SetActive(false);
+            player.enabled = true;
+            Vector3 targetPosition = new Vector3(13.79f, -0.63f, -10);
+            if(exitScript.IsLoaded)
+            {
+                targetPosition = new Vector3(17.4f, 12f, -10);
+            }
+
+            StartCoroutine(MoveCamera(targetPosition));
         }
     }
+
+    private IEnumerator MoveCamera(Vector3 targetPosition)
+    {
+        Camera.main.transform.DOMove(targetPosition, 2f);
+        Camera.main.DOOrthoSize(2, 2f);
+        yield return new WaitForSeconds(3f);
+
+        Camera.main.transform.DOLocalMove(new Vector3(0,0,-10), 0.5f);
+        Camera.main.DOOrthoSize(5.3f, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+    }
+
+
     private void UpdateUI(string input)
     {
         text.text = input;
@@ -37,17 +66,20 @@ public class Cord : MonoBehaviour
 
     public void AddInput(string input)
     {
-        this.input += input;
-        UpdateUI(this.input);
-
-        if(this.input.Length == 4)
+        if(this.input.Length < 4)
         {
-            foreach(Button button in buttons)
-            {
-                button.interactable = false;
-            }
+            this.input += input;
+            UpdateUI(this.input);
 
-            StartCoroutine(CheckTheAnswer());
+            if (this.input.Length == 4)
+            {
+                foreach (Button button in buttons)
+                {
+                    button.interactable = false;
+                }
+
+                StartCoroutine(CheckTheAnswer());
+            }
         }
     }
 
@@ -58,7 +90,11 @@ public class Cord : MonoBehaviour
         bool result = CompareTheAnswer();
         if (result)
         {
-            // Open the gate
+            exitCollider.enabled = true;
+            text.color = Color.green;
+            yield return new WaitForSeconds(0.5f);
+            Destroy(FindObjectOfType<TerminalForCode>());
+            Destroy(this.gameObject);
         }
         else
         {

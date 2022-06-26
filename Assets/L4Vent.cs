@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class L4Vent : MonoBehaviour
 {
     public Text text;
+    [SerializeField] GameObject minimap;
 
     Player player;
     Animator animator;
@@ -26,6 +27,7 @@ public class L4Vent : MonoBehaviour
             if(existDriver && Input.GetKeyDown(KeyCode.E))
             {
                 OpenVent();
+                Destroy(minimap);
             }
         }
         else

@@ -19,6 +19,7 @@ public class VentOpen : MonoBehaviour
     [SerializeField]
     bool DoesContainTool;
     public Sprite sprite;
+    [SerializeField] GameObject minimap;
 
     void Start()
     {
@@ -60,6 +61,7 @@ public class VentOpen : MonoBehaviour
             {
                 yellowTool.SetActive(true);
             }
+            Destroy(minimap);
             Destroy(this);
         }
     }
