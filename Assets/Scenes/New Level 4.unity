@@ -9225,7 +9225,6 @@ GameObject:
   - component: {fileID: 217673211}
   - component: {fileID: 217673210}
   - component: {fileID: 217673212}
-  - component: {fileID: 217673213}
   - component: {fileID: 217673214}
   - component: {fileID: 217673215}
   m_Layer: 0
@@ -9322,18 +9321,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &217673213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217673209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &217673214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17376,7 +17363,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
   m_Origin: {x: -21, y: -10, z: 0}
   m_Size: {x: 86, y: 37, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -19029,6 +19016,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1551656056}
   exitCollider: {fileID: 1336494240}
+  clips:
+  - {fileID: 8300000, guid: 3b1ad641e99ec3b4bb9dd4c43534f43a, type: 3}
+  - {fileID: 8300000, guid: 5db134dcbe1a03e4fbf39188312cbc38, type: 3}
+  - {fileID: 8300000, guid: 3cddb54aef1963240b733b2b02440fec, type: 3}
 --- !u!82 &432348742
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21180,7 +21171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493501616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.6, y: 15.6, z: 0}
+  m_LocalPosition: {x: -10, y: -6.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24284,7 +24275,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: -128575432, guid: 6998b3033ba2448b2bc8e9ced35ddd57, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -44455,7 +44446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752930512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 2.55, z: 0}
+  m_LocalPosition: {x: -8.93, y: 2.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44482,8 +44473,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
-  MaxDistance: 4
+  MinDistance: 3.4418998
+  MaxDistance: 4.390004
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -44493,23 +44484,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.7920792
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.2630048
+      outSlope: -1.2630048
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.019302368
-      inSlope: -3.9453154
-      outSlope: -3.9453154
+      value: 0.016947985
+      inSlope: -0.7923946
+      outSlope: -0.7923946
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.065217435
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -46075,7 +46066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff63d1f677afe7b49a7e902a93577b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 0}
+  spike: {fileID: 752930514}
 --- !u!1 &805925312
 GameObject:
   m_ObjectHideFlags: 0
@@ -66776,7 +66767,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  m_Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
   m_Origin: {x: -21, y: -10, z: 0}
   m_Size: {x: 86, y: 36, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -67091,18 +67082,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Close
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1466947207}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
@@ -69894,7 +69873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8db82ec1f382b418f516508c995de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!61 &1051387114
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -75815,7 +75793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff63d1f677afe7b49a7e902a93577b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 0}
+  spike: {fileID: 1207937195}
 --- !u!1 &1099689578
 GameObject:
   m_ObjectHideFlags: 0
@@ -77052,7 +77030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff63d1f677afe7b49a7e902a93577b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 0}
+  spike: {fileID: 1434287353}
 --- !u!95 &1186957397
 Animator:
   serializedVersion: 4
@@ -77551,7 +77529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207937193}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 2.55, z: 0}
+  m_LocalPosition: {x: 0.63, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77579,7 +77557,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 3
-  MaxDistance: 4
+  MaxDistance: 6
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -77919,7 +77897,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1228593872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81652,7 +81630,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434287351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 44.46, y: 5.72, z: 0}
+  m_LocalPosition: {x: 43.86, y: 5.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81680,7 +81658,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 3
-  MaxDistance: 6.22
+  MaxDistance: 6.5
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -108209,7 +108187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff63d1f677afe7b49a7e902a93577b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spike: {fileID: 0}
+  spike: {fileID: 111007679}
 --- !u!1 &1625838355
 GameObject:
   m_ObjectHideFlags: 0
@@ -109253,7 +109231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1720576160
 AudioSource:
   m_ObjectHideFlags: 0
@@ -109268,7 +109246,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -150933,7 +150911,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.21426664, g: 0.3275239, b: 0.4245283, a: 1}
+  m_Color: {r: 0.21635813, g: 0.23218495, b: 0.24528301, a: 1}
   m_Origin: {x: -40, y: -18, z: 0}
   m_Size: {x: 113, y: 49, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -153478,7 +153456,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 3
-  MaxDistance: 4
+  MaxDistance: 6
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
