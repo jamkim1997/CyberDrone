@@ -11,6 +11,7 @@ public class ExitDoor : MonoBehaviour
 
     Animator animator;
     bool isInRange;
+    bool isWorking;
     Text text;
 
     public Transform canvas;
@@ -24,10 +25,11 @@ public class ExitDoor : MonoBehaviour
 
     void Update()
     {
-        if (isInRange)
+        if (isInRange && !isWorking)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                isWorking = true;
                 if (text)
                 {
                     Destroy(canvas.gameObject);

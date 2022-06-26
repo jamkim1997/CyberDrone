@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AccessCard : MonoBehaviour
 {
-    public AudioSource audioSource;
    
 
    
@@ -22,11 +21,10 @@ public class AccessCard : MonoBehaviour
         {
             Destroy(GetComponent<SpriteRenderer>());
             Destroy(GetComponent<BoxCollider2D>());
-            audioSource = GetComponent<AudioSource>();
-            
+            Destroy(transform.GetChild(0).gameObject);
             ExitChoice.SetCard(true);
 
-            audioSource.Play();
+            GetComponent<AudioSource>().Play();
 
             Destroy(gameObject,2f);
         }

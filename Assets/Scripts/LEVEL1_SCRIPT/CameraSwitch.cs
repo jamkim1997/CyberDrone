@@ -17,6 +17,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (!hasTriggered)
         {
+            GetComponent<AudioSource>().Play();
             hasTriggered = true;
             spriteRenderer.flipY = true;
             StopCamera.GetComponentInChildren<FieldOfView>().gameObject.SetActive(false);

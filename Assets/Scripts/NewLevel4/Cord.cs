@@ -9,6 +9,7 @@ public class Cord : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] BoxCollider2D exitCollider;
+    [SerializeField] AudioClip[] clips;
 
     Player player;
     Exit exitScript;
@@ -70,7 +71,7 @@ public class Cord : MonoBehaviour
     {
         if(this.input.Length < 4)
         {
-            audioSource.Play();
+            PlaySound("Button");
             this.input += input;
             UpdateUI(this.input);
 
@@ -93,6 +94,7 @@ public class Cord : MonoBehaviour
         bool result = CompareTheAnswer();
         if (result)
         {
+            PlaySound("Correct");
             exitCollider.enabled = true;
             text.color = Color.green;
             yield return new WaitForSeconds(0.5f);
@@ -101,7 +103,8 @@ public class Cord : MonoBehaviour
         }
         else
         {
-            for(int i = 0; i < 5; i++)
+            PlaySound("Wrong");
+            for (int i = 0; i < 5; i++)
             {
                 UpdateUI(this.input);
                 yield return new WaitForSeconds(0.1f);
@@ -117,6 +120,24 @@ public class Cord : MonoBehaviour
         int numInput = int.Parse(input);
         int numAnswer = int.Parse(answer);
         return numInput == numAnswer;
+    }
+
+    private void PlaySound(string name)
+    {
+        switch(name)
+        {
+            case "Correct":
+                audioSource.clip = clips[0];
+                break;
+            case "Wrong":
+                audioSource.clip = clips[1];
+                break;
+            case "Button":
+                audioSource.clip = clips[2];
+                break;
+        }
+
+        audioSource.Play();
     }
 }
 

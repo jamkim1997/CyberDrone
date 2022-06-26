@@ -131,6 +131,7 @@ public class GameController : MonoBehaviour
         countCorrectguesses++;
         if (countCorrectguesses == gamegusses)
         {
+            Red.GetComponent<AudioSource>().Play();
             Destroy(miniGameUI);
             Destroy(imagePanel);
             Red.enabled = true;
