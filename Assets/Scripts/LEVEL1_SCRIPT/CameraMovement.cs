@@ -32,7 +32,7 @@ public class CameraMovement : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         animator.enabled = true;
-
+        animator.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1f);
         Camera.main.transform.DOLocalMove(new Vector3(0, 0, -10f), 2f); // ??????
         Camera.main.DOOrthoSize(5.3f, 2f);
