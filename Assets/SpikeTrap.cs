@@ -6,6 +6,8 @@ public class SpikeTrap : MonoBehaviour
 {
     Player player;
     bool isActivated;
+    public AudioSource spike;
+   
 
     private void Awake()
     {
@@ -13,6 +15,10 @@ public class SpikeTrap : MonoBehaviour
     }
     public void Activate()
     {
+        if(spike)
+        {
+            spike.Play();
+        }
         isActivated = true;
     }
 

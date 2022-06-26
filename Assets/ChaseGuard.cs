@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class ChaseGuard : MonoBehaviour
 {
+    public AudioSource bgAudio;
     Player player;
     NavMeshAgent nav;
     Guard guardScript;
@@ -38,6 +39,8 @@ public class ChaseGuard : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        Destroy(bgAudio.gameObject);
+        GetComponentInChildren<AudioSource>().Play();
         guardScript.IsAIOn = true;
        
     }

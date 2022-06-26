@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class AccessCard : MonoBehaviour
 {
-    public Animator secoondGreenDoor;
+    public AudioSource audioSource;
    
+
+   
+
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+       
         if (collision.gameObject.name == "Character")
         {
+            Destroy(GetComponent<SpriteRenderer>());
+            Destroy(GetComponent<BoxCollider2D>());
+            audioSource = GetComponent<AudioSource>();
+            
             ExitChoice.SetCard(true);
-           
-            Destroy(gameObject);
+
+            audioSource.Play();
+
+            Destroy(gameObject,2f);
         }
     }
 }
+
+

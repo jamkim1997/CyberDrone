@@ -11,8 +11,13 @@ public class EmitGas : MonoBehaviour
 
     public bool test;
     public bool test2;
+    private AudioSource audioSource;
+    public AudioClip ventGas;
+    public AudioClip doorOpen;
+
     private void Update()
     {
+        audioSource = GetComponent<AudioSource>();
      if(test)
         {
             test = false;
@@ -42,8 +47,11 @@ public class EmitGas : MonoBehaviour
         player.enabled = false;
         yield return new WaitForSeconds(2f);
         int emissionRate = 200;
-        while(emissionRate > 10)
+        audioSource.clip = ventGas;
+        audioSource.Play();
+        while (emissionRate > 10)
         {
+           
             emissionRate -= 10;
             foreach(ParticleSystem effect in particles)
             {
@@ -63,6 +71,7 @@ public class EmitGas : MonoBehaviour
         {
             Destroy(effect.gameObject);
         }
+        audioSource.Pause();
         Camera.main.transform.DOLocalMove(new Vector3(0, 0, -10), 0.5f);
         yield return new WaitForSeconds(0.5f);
         player.enabled = true;
@@ -77,6 +86,7 @@ public class EmitGas : MonoBehaviour
         
         foreach(ParticleSystem effect in particles)
         {
+            audioSource.Play();
             effect.gameObject.SetActive(true);
         }
 
@@ -92,6 +102,8 @@ public class EmitGas : MonoBehaviour
         guard.DOMoveY(23.66f, 1f);
         yield return new WaitForSeconds(1f);
         animator.enabled = true;
+        audioSource.clip = doorOpen;
+        audioSource.Play();
         yield return new WaitForSeconds(1f);
         guard.DOMoveY(24.65f, 0.2f);
         yield return new WaitForSeconds(0.2f);

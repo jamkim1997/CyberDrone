@@ -16,12 +16,14 @@ public class Cord : MonoBehaviour
     string input = "";
     string answer = "2413";
     int wrongTime = 0;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         buttons = GetComponentsInChildren<Button>();
         player = FindObjectOfType<Player>();
         exitScript = FindObjectOfType<Exit>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void ResetInput()
@@ -68,6 +70,7 @@ public class Cord : MonoBehaviour
     {
         if(this.input.Length < 4)
         {
+            audioSource.Play();
             this.input += input;
             UpdateUI(this.input);
 

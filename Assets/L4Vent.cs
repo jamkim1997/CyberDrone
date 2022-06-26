@@ -11,12 +11,14 @@ public class L4Vent : MonoBehaviour
     Player player;
     Animator animator;
     bool existDriver;
+    private AudioSource audioSource;
     
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         player = FindObjectOfType<Player>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -26,6 +28,7 @@ public class L4Vent : MonoBehaviour
 
             if(existDriver && Input.GetKeyDown(KeyCode.E))
             {
+                audioSource.Play();
                 OpenVent();
                 Destroy(minimap);
             }

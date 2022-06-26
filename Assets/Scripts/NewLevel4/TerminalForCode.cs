@@ -11,10 +11,12 @@ public class TerminalForCode : MonoBehaviour
     public Transform codeUI;
 
     Player player;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        audioSource = GetComponent<AudioSource>();
     }
     public void OnDestroy()
     {
@@ -29,6 +31,7 @@ public class TerminalForCode : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
+                audioSource.Play();
                 codeUI.gameObject.SetActive(true);
                 player.enabled = false;
             }

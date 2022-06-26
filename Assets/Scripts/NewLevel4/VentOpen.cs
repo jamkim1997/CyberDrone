@@ -20,14 +20,17 @@ public class VentOpen : MonoBehaviour
     bool DoesContainTool;
     public Sprite sprite;
     [SerializeField] GameObject minimap;
+    private AudioSource audioSource;
 
     void Start()
     {
         character = FindObjectOfType<Player>().transform;
         ProgressUI = transform.parent.GetComponentInChildren<Canvas>(true);
+        audioSource = GetComponent<AudioSource>();
         currentPercent = 0;
         maxPercent = 100;
         checkingBin = true;
+       
 
     }
 
@@ -45,7 +48,21 @@ public class VentOpen : MonoBehaviour
                 }
                 currentPercent += 40 * Time.deltaTime;
 
+
+                if (audioSource.isPlaying)
+                {
+                    audioSource.UnPause();
+                }
+                else
+                {
+                    audioSource.Play();
+                }
+
                 percentSlider.fillAmount = currentPercent / maxPercent;
+            }
+            else
+            {
+                audioSource.Pause();
             }
         }
         else if (checkingBin)
@@ -57,7 +74,8 @@ public class VentOpen : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = sprite;
             ProgressUI.gameObject.SetActive(false);
             currentPercent = 0;
-            if(DoesContainTool)
+            audioSource.Pause();
+            if (DoesContainTool)
             {
                 yellowTool.SetActive(true);
             }
