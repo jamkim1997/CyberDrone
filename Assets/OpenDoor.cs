@@ -5,12 +5,16 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.name == "Character")
         {
             GetComponent<Animator>().enabled = true;
-            audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -22,7 +26,10 @@ public class OpenDoor : MonoBehaviour
            
             Destroy(collider);
         }
-        audioSource.Play();
+        if (audioSource)
+        {
+            audioSource.Play();
+        }
         Destroy(this);
     }
 }
