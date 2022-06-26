@@ -936,6 +936,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 1325646927}
+  save: 0
 --- !u!61 &216651726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1221,6 +1222,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3927fbc7fb202b7499798aff8a458d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   waypointList:
   - {x: -0.85, y: 2, z: 0}
   - {x: 13, y: 2, z: 0}
@@ -1228,10 +1232,10 @@ MonoBehaviour:
   - 2
   - 2
   aimDirection: {x: 0.4, y: -1, z: 0}
-  player: {fileID: 539930192}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 8
+  IsAIOn: 0
 --- !u!212 &294146468
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2152,6 +2156,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 1895328859}
+  save: 0
 --- !u!114 &324572493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7145,7 +7150,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     oldSize: {x: 0.6875, y: 1.125}
     newSize: {x: 0.6875, y: 1.125}
     adaptiveTilingThreshold: 0.5
@@ -7463,7 +7468,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     oldSize: {x: 0.6875, y: 1.125}
     newSize: {x: 0.6875, y: 1.125}
     adaptiveTilingThreshold: 0.5
@@ -7697,6 +7702,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
+  save: 0
 --- !u!61 &942423219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7791,7 +7797,7 @@ SpriteRenderer:
   m_Size: {x: 1.43, y: 0.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &969834305
@@ -8090,6 +8096,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 831056906}
+  save: 0
 --- !u!1 &1007933124
 GameObject:
   m_ObjectHideFlags: 0
@@ -42463,7 +42470,7 @@ SpriteRenderer:
   m_Size: {x: 1.43, y: 0.51}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1159376505
@@ -43713,7 +43720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1319641845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50910,7 +50917,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0.5}
     oldSize: {x: 0.6875, y: 1.125}
     newSize: {x: 0.6875, y: 1.125}
     adaptiveTilingThreshold: 0.5

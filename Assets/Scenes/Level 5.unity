@@ -4128,6 +4128,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
+  save: 0
 --- !u!61 &194907353
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4340,7 +4341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &222751906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28812,6 +28813,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
+  save: 0
 --- !u!61 &1330529290
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29732,6 +29734,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
+  save: 0
 --- !u!61 &1499317682
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34269,6 +34272,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   text: {fileID: 0}
+  save: 0
 --- !u!61 &1797727063
 BoxCollider2D:
   m_ObjectHideFlags: 0

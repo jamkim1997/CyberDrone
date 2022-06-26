@@ -5,16 +5,11 @@ using DG.Tweening;
 
 public class L4Start : MonoBehaviour
 {
-    private MissionUI missionUI;
     public RectTransform canvas;
     private Player player;
 
     private void Awake()
     {
-        missionUI = FindObjectOfType<MissionUI>();
-        List<string> missionList = new List<string> { "- Open the safe", "- Exit safely" };
-
-        missionUI.SetMission(missionList);
 
         player = FindObjectOfType<Player>();
     }
