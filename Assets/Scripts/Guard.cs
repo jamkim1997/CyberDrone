@@ -108,7 +108,11 @@ public class Guard : MonoBehaviour
     } 
     private void Alert() {
         state = State.Busy;
-        nav.enabled = false;
+        if (nav)
+        {
+            nav.enabled = false;
+        }
+    
         player.enabled = false;
 
         Vector3 targetPosition = player.GetPosition();

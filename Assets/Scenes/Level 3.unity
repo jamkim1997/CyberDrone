@@ -6737,7 +6737,7 @@ MonoBehaviour:
   speed: 0.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: 13, y: -60, z: 0}
 --- !u!212 &400192019
 SpriteRenderer:
@@ -6929,7 +6929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 127
   waypointList:
   - {x: -12.41, y: 0.76, z: 0}
   - {x: -7.21, y: 0.7, z: 0}
@@ -8431,7 +8431,7 @@ MonoBehaviour:
   speed: 0.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &618552674
 SpriteRenderer:
@@ -9631,7 +9631,7 @@ MonoBehaviour:
   speed: 0.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &794461971
 SpriteRenderer:
@@ -11947,7 +11947,7 @@ MonoBehaviour:
   speed: 0.5
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1270140563
 SpriteRenderer:
@@ -12800,7 +12800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 127
   waypointList:
   - {x: 9.32, y: 11.1, z: 0}
   - {x: 5.06, y: 11.16, z: 0}
@@ -12999,7 +12999,7 @@ MonoBehaviour:
   speed: 0.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1447782914
 SpriteRenderer:
@@ -14973,7 +14973,7 @@ MonoBehaviour:
   speed: 0.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 127
   positionToMoveTo: {x: -1.5, y: 2, z: 0}
 --- !u!212 &1736196876
 SpriteRenderer:

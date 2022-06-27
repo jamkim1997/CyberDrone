@@ -85,6 +85,7 @@ public class SurveillanceCamera : MonoBehaviour
             {
                 // Player inside Field of View
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
+                print(raycastHit2D.collider.name);
                 if (raycastHit2D.collider != null)
                 {
                     // Hit something

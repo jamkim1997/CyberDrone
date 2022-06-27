@@ -103,9 +103,14 @@ public class L2Guard : MonoBehaviour
             {
                 // Player inside Field of View
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
-                if (raycastHit2D.collider)
+                if (raycastHit2D.collider != null)
                 {
-                    Alert();
+                    // Hit something
+                    if (raycastHit2D.collider.gameObject.GetComponent<L2Player>() != null)
+                    {
+                        // Hit Player
+                        Alert();
+                    }
                 }
             }
         }

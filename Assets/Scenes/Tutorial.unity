@@ -1348,7 +1348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 95
   waypointList:
   - {x: -0.85, y: 2, z: 0}
   - {x: 13, y: 2, z: 0}
@@ -1825,7 +1825,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Only computer which is on can be interactable
+  m_Text: Only computer which is on can be interactable by pressing 'E'
 --- !u!222 &398790052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14260,7 +14260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1618975449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14600,7 +14600,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1790624267
 RectTransform:
@@ -22923,7 +22923,7 @@ MonoBehaviour:
   speed: 0.3
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 95
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!114 &2007892468
 MonoBehaviour:
