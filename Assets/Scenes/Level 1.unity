@@ -1331,7 +1331,7 @@ MonoBehaviour:
   aimDirection: {x: 0.4, y: -1, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
-  viewDistance: 8
+  viewDistance: 5
   IsAIOn: 0
 --- !u!212 &294146468
 SpriteRenderer:
@@ -2201,7 +2201,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.697386}
+  m_Offset: {x: -0.59706765, y: -0.697386}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2212,7 +2212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.01, y: 4.4658966}
+  m_Size: {x: 2.0728483, y: 4.4658966}
   m_EdgeRadius: 0
 --- !u!114 &324572492
 MonoBehaviour:
@@ -3310,6 +3310,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &490356650
 SpriteRenderer:
@@ -5893,7 +5894,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &757294618
 RectTransform:
@@ -43948,6 +43949,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1277591287
 SpriteRenderer:
@@ -44815,6 +44817,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1394183952
 SpriteRenderer:
@@ -58684,6 +58687,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &2119162396
 SpriteRenderer:

@@ -14,6 +14,10 @@ public class OpenDoor : MonoBehaviour
     {
         if(collision.name == "Character")
         {
+            if (audioSource)
+            {
+                audioSource.Play();
+            }
             GetComponent<Animator>().enabled = true;
         }
     }
@@ -26,10 +30,7 @@ public class OpenDoor : MonoBehaviour
            
             Destroy(collider);
         }
-        if (audioSource)
-        {
-            audioSource.Play();
-        }
+        
         Destroy(this);
     }
 }

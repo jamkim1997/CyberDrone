@@ -11,9 +11,11 @@ public class StartGame : MonoBehaviour
     public RectTransform doorUI;
     public RectTransform canvas;
     public Text text;
+    private AudioSource[] audios;
 
     private void Awake()
     {
+        audios = FindObjectsOfType<AudioSource>();
         player = FindObjectOfType<L2Player>(true);
         missionUI = FindObjectOfType<MissionUI>();
         if (GameManager.GetIsHidden())
@@ -36,6 +38,10 @@ public class StartGame : MonoBehaviour
 
     void Start()
     {
+        foreach (AudioSource audioSource in audios)
+        {
+            audioSource.volume *= ((float)GameManager.GetSound() / 10);
+        }
         player.enabled = false;
         StartCoroutine(DeleteStartUI());
     }

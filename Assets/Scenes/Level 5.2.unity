@@ -13888,6 +13888,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: 1, z: 0}
 --- !u!212 &191825050
 SpriteRenderer:
@@ -25417,7 +25418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHidden: 0
   IsLoaded: 1
-  sceneNum: 11
+  sceneNum: 10
 --- !u!95 &587745005
 Animator:
   serializedVersion: 4
@@ -31611,7 +31612,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1090359513
 RectTransform:
@@ -33241,7 +33242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsHidden: 0
   IsLoaded: 1
-  sceneNum: 11
+  sceneNum: 10
 --- !u!95 &1259176424
 Animator:
   serializedVersion: 4
@@ -40108,6 +40109,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1575457605
 SpriteRenderer:
@@ -41049,6 +41051,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 127
+  isBusy: 0
   positionToMoveTo: {x: 1, y: 3.5, z: 0}
 --- !u!212 &1671421844
 SpriteRenderer:

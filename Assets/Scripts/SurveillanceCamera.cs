@@ -13,6 +13,7 @@ public class SurveillanceCamera : MonoBehaviour
     public LayerMask layerMask;
     private CameraAnim cameraAnim;
     private FieldOfView fieldOfView;
+    public bool isBusy;
 
     private enum State
     {
@@ -54,13 +55,16 @@ public class SurveillanceCamera : MonoBehaviour
             case State.Busy:
                 break;
         }
-
-        if (fieldOfView != null)
+        if(!isBusy)
         {
-            fieldOfView.SetOrigin(transform.position);
-            fieldOfView.SetAimDirection(GetAimDir());
-            cameraAnim.UpdateSprite(GetAimDir().x);
+            if (fieldOfView != null)
+            {
+                fieldOfView.SetOrigin(transform.position);
+                fieldOfView.SetAimDirection(GetAimDir());
+                cameraAnim.UpdateSprite(GetAimDir().x);
+            }
         }
+        
 
         Debug.DrawLine(transform.position, transform.position + GetAimDir() * 10f);
     }

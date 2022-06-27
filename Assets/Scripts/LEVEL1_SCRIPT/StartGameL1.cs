@@ -6,6 +6,7 @@ using DG.Tweening;
 public class StartGameL1 : MonoBehaviour
 {
     private MissionUI missionUI;
+    private AudioSource[] audioSources;
     public RectTransform canvas;
     private Player player;
 
@@ -15,13 +16,17 @@ public class StartGameL1 : MonoBehaviour
         List<string> missionList = new List<string> { "- Steal confidential document", "- Turn Off camera", "- Collect 4 document", "- Open the safe", "- Steal SD card ", "- Validate SD card with a server", "Escape safely"};
 
         missionUI.SetMission(missionList);
-
+        audioSources = FindObjectsOfType<AudioSource>();
         player = FindObjectOfType<Player>();
     }
 
     private void Start()
     {
         player.enabled = false;
+        foreach(AudioSource audioSource in audioSources)
+        {
+           audioSource.volume *= ((float)GameManager.GetSound() / 10);
+        }
         StartCoroutine(DeleteStartUI());
     }
 

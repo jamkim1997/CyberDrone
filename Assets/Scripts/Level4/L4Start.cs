@@ -7,15 +7,20 @@ public class L4Start : MonoBehaviour
 {
     public RectTransform canvas;
     private Player player;
+    private AudioSource[] audioSources;
 
     private void Awake()
     {
-
+        audioSources = FindObjectsOfType<AudioSource>();
         player = FindObjectOfType<Player>();
     }
 
     void Start()
     {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.volume *= ((float)GameManager.GetSound() / 10);
+        }
         player.enabled = false;
         StartCoroutine(DeleteStartUI());
     }

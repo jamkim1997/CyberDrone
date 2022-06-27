@@ -17,13 +17,17 @@ public class CameraMovement : MonoBehaviour
         Player playerscript = FindObjectOfType<Player>();
         Guard guard = FindObjectOfType<Guard>();
         SurveillanceCamera[] cameras = FindObjectsOfType<SurveillanceCamera>();
-
+        FieldOfView[] fields = FindObjectsOfType<FieldOfView>();
         playerscript.enabled = false;
         guard.enabled = false;
 
         foreach (SurveillanceCamera camera in cameras)
         {
             camera.enabled = false;
+        }
+        foreach(FieldOfView fieldofview in fields)
+        {
+            fieldofview.enabled = false;
         }
 
         Camera.main.transform.DOMove(new Vector3(16.5f, -3.0f, -10f), 2f); // ??????
@@ -46,6 +50,9 @@ public class CameraMovement : MonoBehaviour
         {
             camera.enabled = true;
         }
-
+        foreach (FieldOfView fieldofview in fields)
+        {
+            fieldofview.enabled = true;
+        }
     }
 }

@@ -10,10 +10,11 @@ public class StartL5 : MonoBehaviour
     public RectTransform canvas;
     public Animator doorAnimator;
     public Transform guard;
-
+    private AudioSource[] audioSources;
 
     private void Awake()
     {
+        audioSources = FindObjectsOfType<AudioSource>();
         missionUI = FindObjectOfType<MissionUI>();
         List<string> missionList = new List<string> { "- Open all safes", "", "- Escape from any exits" };
 
@@ -24,6 +25,10 @@ public class StartL5 : MonoBehaviour
 
     void Start()
     {
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.volume *= ((float)GameManager.GetSound() / 10);
+        }
         player.enabled = false;
         StartCoroutine(DeleteStartUI());
     }
@@ -39,35 +44,38 @@ public class StartL5 : MonoBehaviour
         Destroy(canvas.parent.gameObject);
         // Game open
 
-        Vector3 initlaPosition = Camera.main.transform.position;
-        float initlaiCameraSize = Camera.main.orthographicSize;
-        Camera.main.transform.DOMove(new Vector3(-11.18f, -4.18f, -10f), 2f);
-        Camera.main.DOOrthoSize(3f, 2f);
-        yield return new WaitForSeconds(2.3f);
+        if(gameObject.name == "Startgame")
+        {
+            Vector3 initlaPosition = Camera.main.transform.position;
+            float initlaiCameraSize = Camera.main.orthographicSize;
+            Camera.main.transform.DOMove(new Vector3(-11.18f, -4.18f, -10f), 2f);
+            Camera.main.DOOrthoSize(3f, 2f);
+            yield return new WaitForSeconds(2.3f);
 
-        guard.gameObject.SetActive(true);
-        doorAnimator.SetBool("Open", true);
-        doorAnimator.transform.GetChild(0).gameObject.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        guard.DOMoveY(-4.08f, 2f);
-        yield return new WaitForSeconds(2f);
+            guard.gameObject.SetActive(true);
+            doorAnimator.SetBool("Open", true);
+            doorAnimator.transform.GetChild(0).gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
 
-        doorAnimator.SetTrigger("Close");
-        SpriteRenderer guardRenderer = guard.GetComponent<SpriteRenderer>();
-        guardRenderer.flipX = true;
-        guard.DOMoveX(-12.89f, 1f);
+            guard.DOMoveY(-4.08f, 2f);
+            yield return new WaitForSeconds(2f);
 
-        yield return new WaitForSeconds(1f);
-        guardRenderer.flipX = false;
-        guard.GetComponent<Guard>().enabled = true;
+            doorAnimator.SetTrigger("Close");
+            SpriteRenderer guardRenderer = guard.GetComponent<SpriteRenderer>();
+            guardRenderer.flipX = true;
+            guard.DOMoveX(-12.89f, 1f);
 
-        yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
+            guardRenderer.flipX = false;
+            guard.GetComponent<Guard>().enabled = true;
 
-        Camera.main.transform.DOMove(initlaPosition, 0.5f);
-        Camera.main.DOOrthoSize(initlaiCameraSize, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1.5f);
 
+            Camera.main.transform.DOMove(initlaPosition, 0.5f);
+            Camera.main.DOOrthoSize(initlaiCameraSize, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+        }
         player.enabled = true;
-        
+
     }
 }

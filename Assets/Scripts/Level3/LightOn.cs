@@ -11,16 +11,12 @@ public class LightOn : MonoBehaviour
     public Material lightOffMaterial;
     public Tilemap wallTile;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        renderers = FindObjectsOfType<SpriteRenderer>();
-        tilesRenderer = FindObjectsOfType<TilemapRenderer>();
-    }
 
     private void TurnOnLight()
     {
-        foreach(Renderer renderer in renderers)
+        renderers = FindObjectsOfType<SpriteRenderer>();
+        tilesRenderer = FindObjectsOfType<TilemapRenderer>();
+        foreach (Renderer renderer in renderers)
         {
             renderer.material = lightOnMaterial;
         }

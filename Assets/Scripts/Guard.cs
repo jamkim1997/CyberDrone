@@ -95,7 +95,6 @@ public class Guard : MonoBehaviour
             if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 1.5f) {
                 // Player inside Field of View
                 RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance, layerMask);
-                print(raycastHit2D.collider.name);
                 if (raycastHit2D.collider != null) {
                     // Hit something
                     if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null) {

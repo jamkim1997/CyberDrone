@@ -32,17 +32,6 @@ public class LeverL3 : MonoBehaviour
             {
                 isActivated = true;
                 audioSource.Play();
-
-                bool isloaded = FindObjectOfType<Exit>().IsLoaded;
-
-                if (isloaded)
-                {
-                    FindObjectOfType<Exit>().IsLoaded = false;
-                }
-                else
-                {
-                    FindObjectOfType<Exit>().IsLoaded = true;
-                }
                 GetComponent<SpriteRenderer>().sprite = onSprite;
                 Destroy(canvas.gameObject);
             }

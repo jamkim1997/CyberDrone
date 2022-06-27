@@ -33,7 +33,7 @@ public class CameraOffLvl3 : MonoBehaviour
                 Destroy(transform.parent.GetChild(0).gameObject);
                 Destroy(icons[0]);
                 icons[1].SetActive(true);
-                Destroy(gameObject);
+                Destroy(gameObject, 1f);
             }
         }
     }

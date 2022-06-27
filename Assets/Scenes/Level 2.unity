@@ -65983,7 +65983,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &995513251
 RectTransform:
@@ -80428,7 +80428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: e544db96803aa48f5a3b7685b47fe4ad, type: 3}
+  - {fileID: 8300000, guid: 9bb62bb13d09cce4a96edd58efc2d061, type: 3}
 --- !u!1 &1800525563
 GameObject:
   m_ObjectHideFlags: 0
