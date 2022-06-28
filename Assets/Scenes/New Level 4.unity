@@ -5775,6 +5775,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &51362365
 SpriteRenderer:
@@ -9227,6 +9228,7 @@ GameObject:
   - component: {fileID: 217673212}
   - component: {fileID: 217673214}
   - component: {fileID: 217673215}
+  - component: {fileID: 217673216}
   m_Layer: 0
   m_Name: Door_0 (12)
   m_TagString: Untagged
@@ -9333,6 +9335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!82 &217673215
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9429,6 +9432,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &217673216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217673209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimationSkip: 1
 --- !u!1 &219970508
 GameObject:
   m_ObjectHideFlags: 0
@@ -20600,6 +20616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!61 &456147722
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22068,6 +22085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!61 &554895437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24169,6 +24187,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -1, y: 2, z: 0}
 --- !u!212 &633112061
 SpriteRenderer:
@@ -25696,6 +25715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!61 &706907530
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44102,6 +44122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!61 &732997747
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69444,6 +69465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!82 &1017116523
 AudioSource:
   m_ObjectHideFlags: 0
@@ -76379,6 +76401,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -6, y: 2, z: 0}
 --- !u!212 &1103709779
 SpriteRenderer:
@@ -78387,7 +78410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1228593872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81880,6 +81903,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1400897680
 SpriteRenderer:
@@ -83018,6 +83042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationSkip: 0
 --- !u!82 &1466947207
 AudioSource:
   m_ObjectHideFlags: 0
@@ -111658,6 +111683,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -1, y: -2, z: 0}
 --- !u!212 &1815356221
 SpriteRenderer:
@@ -152029,6 +152055,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 72
+  isBusy: 0
   positionToMoveTo: {x: -2, y: -2, z: 0}
 --- !u!212 &1980872963
 SpriteRenderer:

@@ -8,7 +8,7 @@ public class StartGameUI : MonoBehaviour
     private Animator animator;
     private Slider slider;
     public Text text;
-
+    public Animator anim;
 
     private void Awake()
     {
@@ -58,6 +58,11 @@ public class StartGameUI : MonoBehaviour
         StartCoroutine(CloseAfterDelay());
     }
 
+    public void Skip()
+    {
+        anim.Play("Anim_MainMenu", 0, 1);
+
+    }
     private IEnumerator CloseAfterDelay()
     {
         animator.SetTrigger("close");

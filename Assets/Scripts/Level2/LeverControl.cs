@@ -114,13 +114,14 @@ public class LeverControl : MonoBehaviour
         cctv.enabled = false;
         guard.GetComponent<L2Guard>().enabled = false;
         guard.GetComponent<Animator>().enabled = false;
-
+        guard.GetComponent<BoxCollider2D>().enabled = false;
 
         FieldOfView = FindObjectsOfType<FieldOfView>();
         //delete the field of view
         foreach (FieldOfView fieldOfView in FieldOfView)
         {
-            Destroy(fieldOfView.gameObject);
+            fieldOfView.gameObject.SetActive(false);
+            //Destroy(fieldOfView.gameObject);
         }
         minimapIcon.SetActive(true);
     }
@@ -131,10 +132,17 @@ public class LeverControl : MonoBehaviour
         {
             target.material = lightOnMaterial;
         }
+        foreach (FieldOfView fieldOfView in FieldOfView)
+        {
+            fieldOfView.gameObject.SetActive(true);
+            //Destroy(fieldOfView.gameObject);
+        }
+        tileMaps[0].color = Color.white;
         tileMaps[1].color = Color.white;
         cctv.enabled = true;
         guard.GetComponent<L2Guard>().enabled = true;
         guard.GetComponent<Animator>().enabled = true;
+        guard.GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void SoundEffect(string name) {

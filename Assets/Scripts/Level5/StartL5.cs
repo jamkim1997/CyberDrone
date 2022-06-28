@@ -35,6 +35,8 @@ public class StartL5 : MonoBehaviour
 
     IEnumerator DeleteStartUI()
     {
+        SpeedBoost speedBoost = FindObjectOfType<SpeedBoost>();
+        speedBoost.enabled = false;
         yield return new WaitForSeconds(1.5f);
 
         canvas.DOLocalMoveY(Screen.height, 0.5f);
@@ -46,6 +48,7 @@ public class StartL5 : MonoBehaviour
 
         if(gameObject.name == "Startgame")
         {
+            
             Vector3 initlaPosition = Camera.main.transform.position;
             float initlaiCameraSize = Camera.main.orthographicSize;
             Camera.main.transform.DOMove(new Vector3(-11.18f, -4.18f, -10f), 2f);
@@ -54,6 +57,7 @@ public class StartL5 : MonoBehaviour
 
             guard.gameObject.SetActive(true);
             doorAnimator.SetBool("Open", true);
+            GetComponent<AudioSource>().Play();
             doorAnimator.transform.GetChild(0).gameObject.SetActive(true);
             yield return new WaitForSeconds(0.5f);
 
@@ -61,6 +65,7 @@ public class StartL5 : MonoBehaviour
             yield return new WaitForSeconds(2f);
 
             doorAnimator.SetTrigger("Close");
+            GetComponent<AudioSource>().Play();
             SpriteRenderer guardRenderer = guard.GetComponent<SpriteRenderer>();
             guardRenderer.flipX = true;
             guard.DOMoveX(-12.89f, 1f);
@@ -74,8 +79,10 @@ public class StartL5 : MonoBehaviour
             Camera.main.transform.DOMove(initlaPosition, 0.5f);
             Camera.main.DOOrthoSize(initlaiCameraSize, 0.5f);
             yield return new WaitForSeconds(0.5f);
+            speedBoost.enabled = true;
         }
         player.enabled = true;
+        speedBoost.enabled = true;
 
     }
 }

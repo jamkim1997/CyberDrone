@@ -22,7 +22,10 @@ public class TerminalForCode : MonoBehaviour
     {
         Destroy(text.gameObject);
         Destroy(minimap);
-        player.enabled = true;
+        if(player)
+        {
+            player.enabled = true;
+        }
     }
 
     void Update()

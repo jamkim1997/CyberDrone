@@ -5,6 +5,7 @@ using UnityEngine;
 public class OpenDoor : MonoBehaviour
 {
     private AudioSource audioSource;
+    public bool AnimationSkip;
 
     private void Awake()
     {
@@ -24,6 +25,10 @@ public class OpenDoor : MonoBehaviour
 
     public void OpentheGate()
     {
+        if(AnimationSkip)
+        {
+            return;
+        }
         BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
         foreach(BoxCollider2D collider in colliders)
         {
