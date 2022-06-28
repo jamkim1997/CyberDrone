@@ -13879,17 +13879,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf1088a2804bf344868e1a029d52687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimDirection: {x: 1, y: 1, z: 0}
+  aimDirection: {x: -1.45, y: 1, z: 0}
   player: {fileID: 695741108}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
   viewDistance: 4
-  speed: 0.1
+  speed: 0.63
   layerMask:
     serializedVersion: 2
     m_Bits: 127
   isBusy: 0
-  positionToMoveTo: {x: -1, y: 1, z: 0}
+  positionToMoveTo: {x: 1.45, y: 1, z: 0}
 --- !u!212 &191825050
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13950,7 +13950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191825047}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 4.94, y: -12.53, z: 0}
+  m_LocalPosition: {x: 4.917, y: -12.662, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17748,8 +17748,8 @@ MonoBehaviour:
   - {x: -7, y: 3, z: 0}
   - {x: -7, y: -7, z: 0}
   waitTimeList:
-  - 1
-  - 1
+  - 1.6
+  - 1.6
   aimDirection: {x: 0, y: 1, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
@@ -27291,8 +27291,8 @@ MonoBehaviour:
   - {x: -0.3, y: -7, z: 0}
   - {x: -0.3, y: 3, z: 0}
   waitTimeList:
-  - 1
-  - 1
+  - 1.6
+  - 1.6
   aimDirection: {x: 0, y: -1, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
@@ -29359,8 +29359,8 @@ MonoBehaviour:
   - {x: 6, y: 6, z: 0}
   - {x: -5, y: 6, z: 0}
   waitTimeList:
-  - 1
-  - 1
+  - 5
+  - 5
   aimDirection: {x: 1, y: 0, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
@@ -32294,10 +32294,10 @@ MonoBehaviour:
   - {x: 7, y: -17, z: 0}
   - {x: -7, y: -17, z: 0}
   waitTimeList:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
   aimDirection: {x: -1, y: 0, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
@@ -33149,7 +33149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242750501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.29, z: 0}
+  m_LocalPosition: {x: -0.007, y: -0.083, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41280,10 +41280,10 @@ MonoBehaviour:
   - {x: -7, y: -12, z: 0}
   - {x: 7, y: -12, z: 0}
   waitTimeList:
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0.5
+  - 0.5
+  - 0.5
+  - 0.5
   aimDirection: {x: 1, y: 0, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
@@ -41459,7 +41459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1746287638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42821,8 +42821,8 @@ MonoBehaviour:
   - {x: 6.75, y: -9, z: 0}
   - {x: 6.75, y: 2, z: 0}
   waitTimeList:
-  - 1
-  - 1
+  - 5
+  - 5
   aimDirection: {x: 0, y: -1, z: 0}
   pfFieldOfView: {fileID: 3737328595696064581, guid: 402788f360b8d8a4686d3187af5cdf4d, type: 3}
   fov: 40
