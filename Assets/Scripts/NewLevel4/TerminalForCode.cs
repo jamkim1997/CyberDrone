@@ -12,7 +12,7 @@ public class TerminalForCode : MonoBehaviour
 
     Player player;
     private AudioSource audioSource;
-
+    [SerializeField] Animator animator;
     private void Awake()
     {
         player = FindObjectOfType<Player>();
@@ -37,6 +37,7 @@ public class TerminalForCode : MonoBehaviour
                 audioSource.Play();
                 codeUI.gameObject.SetActive(true);
                 player.enabled = false;
+                animator.enabled = true;
             }
         }
 

@@ -7362,6 +7362,7 @@ MonoBehaviour:
   minimap: {fileID: 1559141989}
   text: {fileID: 240680471}
   codeUI: {fileID: 926591225}
+  animator: {fileID: 1336494243}
 --- !u!82 &113408558
 AudioSource:
   m_ObjectHideFlags: 0
@@ -80545,6 +80546,8 @@ GameObject:
   - component: {fileID: 1336494239}
   - component: {fileID: 1336494240}
   - component: {fileID: 1336494241}
+  - component: {fileID: 1336494243}
+  - component: {fileID: 1336494242}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -80686,6 +80689,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.90625, y: 0.7711185}
   m_EdgeRadius: 0
+--- !u!114 &1336494242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336494236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51413211c6c94ba41b73db338b0c7a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimationSkip: 1
+--- !u!95 &1336494243
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336494236}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33d951c0aedf2e940b95dea32304575f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1338677470
 GameObject:
   m_ObjectHideFlags: 0
